@@ -1,0 +1,708 @@
+fileFormatVersion: 2
+guid: b0b13938567659d4297cee2d23fd8706
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8767200824082276445
+    second: Reimu_0
+  - first:
+      213: 1338874460256256461
+    second: Reimu_1
+  - first:
+      213: -1131576681008145888
+    second: Reimu_2
+  - first:
+      213: -4679629360715545439
+    second: Reimu_3
+  - first:
+      213: 4615818392882043668
+    second: Reimu_4
+  - first:
+      213: -6101997543622703970
+    second: Reimu_5
+  - first:
+      213: 7114744499622939105
+    second: Reimu_6
+  - first:
+      213: -2836760404333508046
+    second: Reimu_7
+  - first:
+      213: 6829374227019835196
+    second: Reimu_8
+  - first:
+      213: -8829904120530732246
+    second: Reimu_9
+  - first:
+      213: -2052366024491400038
+    second: Reimu_10
+  - first:
+      213: -4611033721800571815
+    second: Reimu_11
+  - first:
+      213: 6058701194337530189
+    second: Reimu_12
+  - first:
+      213: -3299872499759693518
+    second: Reimu_13
+  - first:
+      213: 4476510074139831889
+    second: Reimu_14
+  - first:
+      213: 4253185899174845923
+    second: Reimu_15
+  - first:
+      213: 1132714818661639787
+    second: Reimu_16
+  - first:
+      213: 7606002375298022370
+    second: Reimu_17
+  - first:
+      213: -9136928805068312725
+    second: Reimu_18
+  - first:
+      213: 4879878220749388029
+    second: Reimu_19
+  - first:
+      213: -662832138015272626
+    second: Reimu_20
+  - first:
+      213: -330287600449914790
+    second: Reimu_21
+  - first:
+      213: -7464371480384827645
+    second: Reimu_22
+  - first:
+      213: 5184524531379496773
+    second: Reimu_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Reimu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96.66667
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50afe9e2ba5ba970800000000000000
+      internalID: 8767200824082276445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96.66667
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1ca6a5a33a49210800000000000000
+      internalID: 1338874460256256461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96.66667
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ad4640105db40f0800000000000000
+      internalID: -1131576681008145888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96.66667
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4cf02e3ed9e0fb0800000000000000
+      internalID: -4679629360715545439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96.66667
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bd2776f5eae0040800000000000000
+      internalID: 4615818392882043668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96.66667
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9400185099515ba0800000000000000
+      internalID: -6101997543622703970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96.66667
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e980b74d66acb260800000000000000
+      internalID: 7114744499622939105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96.66667
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23aceca217dc1a8d0800000000000000
+      internalID: -2836760404333508046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48.666668
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37a9b70dafc6ce50800000000000000
+      internalID: 6829374227019835196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48.666668
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2bf1073cf0e57580800000000000000
+      internalID: -8829904120530732246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48.666668
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a940c1189f78483e0800000000000000
+      internalID: -2052366024491400038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48.666668
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954cab4a2415200c0800000000000000
+      internalID: -4611033721800571815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48.666668
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4139b8c2a4d41450800000000000000
+      internalID: 6058701194337530189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_13
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 48.666668
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2314eb7e17f7432d0800000000000000
+      internalID: -3299872499759693518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48.666668
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15eef82e132cf1e30800000000000000
+      internalID: 4476510074139831889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_15
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 48.666668
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed540c7a0a560b30800000000000000
+      internalID: 4253185899174845923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.66666794
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b66e52e402638bf00800000000000000
+      internalID: 1132714818661639787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0.66666794
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb7a6cacd2fd8960800000000000000
+      internalID: 7606002375298022370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0.66666794
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f6edb49ab133180800000000000000
+      internalID: -9136928805068312725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0.66666794
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8bee6136fc8b340800000000000000
+      internalID: 4879878220749388029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0.66666794
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4113ebaea52dc6f0800000000000000
+      internalID: -662832138015272626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0.66666794
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5877756d259a6bf0800000000000000
+      internalID: -330287600449914790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0.66666794
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f0b10cfa9396890800000000000000
+      internalID: -7464371480384827645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reimu_23
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0.66666794
+        width: 32
+        height: 48.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5476c2ea79123f740800000000000000
+      internalID: 5184524531379496773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

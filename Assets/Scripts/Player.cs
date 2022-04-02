@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +11,7 @@ public class Player : MonoBehaviour
     public AudioSource audioSourceHit;
     private Rigidbody2D rb2D;
     public Image lifeBar;
+    public SpriteRenderer playerSprite;
 
     // Parameters
     public float speed;
@@ -25,8 +25,6 @@ public class Player : MonoBehaviour
 
     //Private
     private float health;
-
-    private SpriteRenderer sprite;
     private bool isInvincible = false;
     private bool canFire = true;
 
@@ -36,13 +34,11 @@ public class Player : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         health = maxHealth;
         lifeBar.fillAmount = 1;
-        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isInvincible);
         if (cooldown >= 0)
         {
             cooldown -= Time.deltaTime;
@@ -76,8 +72,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(Input.GetAxis("Horizontal"));
-        Debug.Log(Input.GetAxis("Vertical"));
         Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed * activeModifier * Time.deltaTime;
         rb2D.MovePosition(rb2D.position + velocity);
     }
@@ -116,10 +110,10 @@ public class Player : MonoBehaviour
         const float blinkSpd = 0.05f;
         while (isInvincible)
         {
-            sprite.enabled = !sprite.enabled;
+            playerSprite.enabled = !playerSprite.enabled;
             yield return new WaitForSeconds(blinkSpd);
         }
-        sprite.enabled = true;
+        playerSprite.enabled = true;
     }
 
     private void StopInvincible()
