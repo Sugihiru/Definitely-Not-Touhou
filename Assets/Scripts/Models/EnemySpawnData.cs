@@ -10,12 +10,14 @@ public struct EnemySpawnData
     public float spawnTime;
     public GameObject enemyGameObject;
     public String enemyMovementBehaviorScriptName;
+    public Sprite background;
 
-    public EnemySpawnData(Vector2 spawnPosition, float spawnTime, GameObject enemyGameObject, String enemyMovementBehaviorScriptName)
+    public EnemySpawnData(Vector2 spawnPosition, float spawnTime, GameObject enemyGameObject, String enemyMovementBehaviorScriptName, Sprite background = null)
     {
         this.spawnPosition = new Vector3(spawnPosition.x, spawnPosition.y, 0);
         this.spawnTime = spawnTime;
         this.enemyGameObject = enemyGameObject;
         this.enemyMovementBehaviorScriptName = enemyMovementBehaviorScriptName;
+        this.background = background;
     }
 }

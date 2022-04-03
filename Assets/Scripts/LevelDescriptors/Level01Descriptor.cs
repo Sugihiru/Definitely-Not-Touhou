@@ -9,6 +9,7 @@ public class Level01Descriptor : MonoBehaviour
     public EnemySpawnData bossSpawnData;
 
     public GameObject gameField;
+    public SpriteRenderer backgroundField;
 
     public void LevelStart()
     {
@@ -37,5 +38,10 @@ public class Level01Descriptor : MonoBehaviour
         var enemyMovementBehaviorScript = System.Type.GetType(bossSpawnData.enemyMovementBehaviorScriptName);
         enemyGameObject.AddComponent(enemyMovementBehaviorScript);
         enemyGameObject.transform.parent = gameField.transform;
+
+        // Change background on boss spawn
+        if (bossSpawnData.background != null) {
+            backgroundField.sprite = bossSpawnData.background;
+        }
     }
 }

@@ -7,12 +7,10 @@ using UnityEngine.UI;
 [Serializable]
 public struct BossPhaseDescriptor
 {
-    public Sprite sprite;
     public int maxHealth;
 
     public BossPhaseDescriptor(Sprite sprite, int maxHealth)
     {
-        this.sprite = sprite;
         this.maxHealth = maxHealth;
     }
 }
@@ -27,17 +25,12 @@ public class Boss : EnemyDamaged
     public AudioClip phaseClip;
 
     private BossLifeBar bossLifeBar;
-    private SpriteRenderer spriteRenderer;
     private int maxNbStocks;
-    private GameObject[] players;
 
     // Start is called before the first frame update
     void Start()
     {
         maxNbStocks = nbStocks;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        players = GameObject.FindGameObjectsWithTag("player");
-
         // Find BossLifeBar GameObject by name, even if it's disabled
         BossLifeBar[] objs = Resources.FindObjectsOfTypeAll<BossLifeBar>();
         for (int i = 0; i < objs.Length; i++)
@@ -72,10 +65,6 @@ public class Boss : EnemyDamaged
 
     private void RemoveStock()
     {
-        foreach (var player in players)
-        {
-            player.BroadcastMessage("MakeActive", false);
-        }
         nbStocks -= 1;
         if (nbStocks == 0)
         {
@@ -114,15 +103,10 @@ public class Boss : EnemyDamaged
     {
         // Use "PlayClipAtPoint" to avoid create an AudioSource and to avoid managing the Destroyed state
         gameObject.GetComponent<Animator>().SetTrigger("Touch");
-        yield return new WaitForSecondsRealtime(0.5f);
         AudioSource.PlayClipAtPoint(phaseClip, gameObject.transform.position, 0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         SetMaxHealth(phaseDescriptors[idx].maxHealth);
-        spriteRenderer.sprite = phaseDescriptors[idx].sprite;
         bossLifeBar.SetFillAmount(1);
         bossLifeBar.SetLifeBarIndex(nbStocks);
-        foreach (var player in players)
-        {
-            player.BroadcastMessage("MakeActive", true);
-        }
     }
 }

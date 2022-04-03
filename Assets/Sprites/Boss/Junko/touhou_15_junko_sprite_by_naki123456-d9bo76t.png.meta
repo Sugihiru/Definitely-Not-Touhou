@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: 244e518b8a4cc71458a94628ad1ce680
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3123563767945604970
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_0
+  - first:
+      213: 4251203836721314442
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_1
+  - first:
+      213: -8073132625055023537
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_2
+  - first:
+      213: -7167473273608556221
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_3
+  - first:
+      213: 1825771927044938783
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_4
+  - first:
+      213: -781322053762972960
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_5
+  - first:
+      213: 3095089580816296847
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_6
+  - first:
+      213: 5462778255348674349
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_7
+  - first:
+      213: -4242387858353030475
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_8
+  - first:
+      213: 1140940829467291301
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_9
+  - first:
+      213: 6157942117450470918
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_10
+  - first:
+      213: -2049072825829215981
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_11
+  - first:
+      213: -2031639051685699562
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_12
+  - first:
+      213: -7919749838580089833
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_13
+  - first:
+      213: -4232099735461129770
+    second: touhou_15_junko_sprite_by_naki123456-d9bo76t_14
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 268.6667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690525a6d4fd6a4d0800000000000000
+      internalID: -3123563767945604970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 268.6667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8a3d8b9d5f4ffa30800000000000000
+      internalID: 4251203836721314442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 268.6667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e7afa96a876ff80800000000000000
+      internalID: -8073132625055023537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 268.6667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341b4755805088c90800000000000000
+      internalID: -7167473273608556221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 268.6667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1cd460f4e1765910800000000000000
+      internalID: 1825771927044938783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 134.66667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e287425bbf2825f0800000000000000
+      internalID: -781322053762972960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 134.66667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8b61944397f3fa20800000000000000
+      internalID: 3095089580816296847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 134.66667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f29c451efafcb40800000000000000
+      internalID: 5462778255348674349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_8
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 134.66667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5baff6f48b20025c0800000000000000
+      internalID: -4242387858353030475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 134.66667
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ae2322b3af65df00800000000000000
+      internalID: 1140940829467291301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.66667175
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6065d0acab7657550800000000000000
+      internalID: 6157942117450470918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0.66667175
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3113b811f1b3093e0800000000000000
+      internalID: -2049072825829215981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0.66667175
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610667ceb0b2ec3e0800000000000000
+      internalID: -2031639051685699562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_13
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0.66667175
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71cf9718b75671290800000000000000
+      internalID: -7919749838580089833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: touhou_15_junko_sprite_by_naki123456-d9bo76t_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0.66667175
+        width: 96.2
+        height: 134.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d190d596bf8445c0800000000000000
+      internalID: -4232099735461129770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
