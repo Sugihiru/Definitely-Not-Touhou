@@ -409,7 +409,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '2021 Celestis Studios
 
-    Licensed By NotTouhou Enterprises'
+    Licensed By NotTouhou Enterprises
+
+    Reedited
+    in 2022 by DefinitelyNotZun'
 --- !u!222 &412330291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -727,9 +730,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'LES DEFENSEURS DE
+  m_Text: 'DEFINITELY NOT
 
-    DOMINARIA'
+    TOUHOU'
 --- !u!222 &1996417659
 CanvasRenderer:
   m_ObjectHideFlags: 0
