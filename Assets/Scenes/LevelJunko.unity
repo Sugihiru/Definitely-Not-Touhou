@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesSpawnData: []
   bossSpawnData:
-    spawnPosition: {x: 0, y: 12, z: 0}
+    spawnPosition: {x: 0, y: 10, z: 0}
     spawnTime: 0
     enemyGameObject: {fileID: 9103089561663980473, guid: 1785e30ca5bca2d4592a384c2e90ee4a, type: 3}
     enemyMovementBehaviorScriptName: BossAIScrollFromUpperScreen

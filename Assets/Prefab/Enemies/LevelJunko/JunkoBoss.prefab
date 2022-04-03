@@ -132,6 +132,63 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &5137621126906234350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8916032438530776880}
+  - component: {fileID: 6030832502045184246}
+  m_Layer: 0
+  m_Name: Pattern1ZoneBulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8916032438530776880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137621126906234350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8703922407454839604}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6030832502045184246
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137621126906234350}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.42, y: 2.42}
+  m_EdgeRadius: 0
 --- !u!1 &7531533278059172916
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +260,7 @@ GameObject:
   - component: {fileID: 8703922407454839604}
   - component: {fileID: -8676039086129096950}
   - component: {fileID: -3766301958587563833}
-  - component: {fileID: 4210776922146949675}
+  - component: {fileID: 2360705052228778330}
   - component: {fileID: -4162923464608230995}
   - component: {fileID: 439457012875408083}
   m_Layer: 0
@@ -228,6 +285,7 @@ Transform:
   - {fileID: 265539050881539852}
   - {fileID: 1219615984941346375}
   - {fileID: 227047643341990812}
+  - {fileID: 8916032438530776880}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -278,7 +336,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4210776922146949675
+--- !u!114 &2360705052228778330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,7 +345,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9103089561663980473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 563b9d9163bd83e4182a363f92bd3344, type: 3}
+  m_Script: {fileID: 11500000, guid: 702a376f866543f469f991b47aa5110d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slowBigBulletGameObject: {fileID: 2767295866381788651, guid: 0331b1613c8021d4e9b26db0fe5c665e, type: 3}
@@ -297,6 +355,8 @@ MonoBehaviour:
   middleBulletSpawnPoint: {fileID: 265539050881539852}
   leftBulletSpawnPoint: {fileID: 1219615984941346375}
   rightBulletSpawnPoint: {fileID: 227047643341990812}
+  firstPatternBulletSpawnZone: {fileID: 6030832502045184246}
+  firstPatternBullet: {fileID: 2767295866381788651, guid: c6bc9eaac4dd22240840402ecabb5237, type: 3}
 --- !u!114 &-4162923464608230995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +377,8 @@ MonoBehaviour:
   phaseDescriptors:
   - maxHealth: 2500
   - maxHealth: 2500
-  nbStocks: 3
+  - maxHealth: 2500
+  nbStocks: 4
   phaseClip: {fileID: 8300000, guid: 6d5d9930c190f7c43b78a41e3395aad4, type: 3}
 --- !u!95 &439457012875408083
 Animator:
