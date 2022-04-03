@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startText: {fileID: 239515240}
-  firstScene: TransitionLevel1
+  firstScene: LevelJunko
   cooldown: 1
 --- !u!1 &239515238
 GameObject:
@@ -878,6 +878,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.183
       objectReference: {fileID: 0}
+    - target: {fileID: 8996737449197047115, guid: 00e25317a26bb3b419ac3769f52db3c6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cfd73897a872a564c8cb7478dd084b3c, type: 3}
     - target: {fileID: 8996737449197047115, guid: 00e25317a26bb3b419ac3769f52db3c6, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1

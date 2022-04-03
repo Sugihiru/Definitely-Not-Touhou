@@ -9,14 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: ead21cbd6e541174286c535cf7045c7d
   - enabled: 1
-    path: Assets/Scenes/TransitionLevel1.unity
-    guid: 4211c11eafd37104aafee7b42d265582
-  - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 472a6836f234ee3408d206e2d49641b8
-  - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: dc40f9baea40b7c40a01037eda50155e
+    path: Assets/Scenes/LevelJunko.unity
+    guid: 134b9e4916e8ad847bc71a24d7ce7784
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: d9be8b32c3d01254e86ce73bfe36fb11
