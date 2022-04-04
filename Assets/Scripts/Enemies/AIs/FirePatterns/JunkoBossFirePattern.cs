@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,19 +58,18 @@ public class JunkoBossFirePattern : MonoBehaviour
             if (firstCooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(firstPatternBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, firstPatternBullet, numberOfBullets: 28, bulletSpeed: bulletSpeed);
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetFirstPhaseBulletFromPool, numberOfBullets: 28, bulletSpeed: bulletSpeed);
                 firstCooldownTime = 0.35f;
             }
         }
-
         if (bossData.nbStocks <= 3)
         {
             if (secondCooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(secondPatternLeftBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, secondPatternBullet, numberOfBullets: 10, bulletSpeed: bulletSpeed);
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetSecondPhaseBulletFromPool, numberOfBullets: 10, bulletSpeed: bulletSpeed);
                 spawnPoint = RandomPointInBounds(secondPatternRightBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, secondPatternBullet, numberOfBullets: 10, bulletSpeed: bulletSpeed);
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetSecondPhaseBulletFromPool, numberOfBullets: 10, bulletSpeed: bulletSpeed);
                 secondCooldownTime = 0.5f;
             }
         }
@@ -79,12 +79,13 @@ public class JunkoBossFirePattern : MonoBehaviour
             if (thirdCooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(thirdPatternLeftBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, thirdPatternBullet, numberOfBullets: 52, bulletSpeed: bulletSpeed);
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetThirdPhaseBulletFromPool, numberOfBullets: 52, bulletSpeed: bulletSpeed);
                 spawnPoint = RandomPointInBounds(thirdPatternRightBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, thirdPatternBullet, numberOfBullets: 52, bulletSpeed: bulletSpeed);
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetThirdPhaseBulletFromPool, numberOfBullets: 52, bulletSpeed: bulletSpeed);
                 thirdCooldownTime = 1f;
             }
         }
+        /*
         else if (bossData.nbStocks == 1)
         {
             if (firstCooldownTime < 0)
@@ -105,10 +106,11 @@ public class JunkoBossFirePattern : MonoBehaviour
                 secondCooldownTime = 0.125f;
             }
         }
+        */
     }
 
 
-    private void FireCircleSpread(Vector3 bulletSpawnPosition, GameObject bulletGameObject, int numberOfBullets = 16, float bulletSpeed = 2f)
+    private void FireCircleSpread(Vector3 bulletSpawnPosition, Func<GameObject> gameObjectPooler, int numberOfBullets = 16, float bulletSpeed = 2f)
     {
         GameObject bullet;
         const float radius = 0.5f;
@@ -118,19 +120,28 @@ public class JunkoBossFirePattern : MonoBehaviour
             var x = bulletSpawnPosition.x + radius * Mathf.Cos(2 * Mathf.PI * i / numberOfBullets);
             var y = bulletSpawnPosition.y + radius * Mathf.Sin(2 * Mathf.PI * i / numberOfBullets);
 
-            bullet = Instantiate(bulletGameObject, new Vector3(x, y, 0), Quaternion.identity);
+            bullet = gameObjectPooler();
+            bullet.SetActive(true);
+            bullet.transform.position = new Vector3(x, y, 0);
+            bullet.transform.rotation = Quaternion.identity;
 
             bullet.GetComponent<IParametrableBullet>().speed = bulletSpeed;
-            bullet.GetComponent<IParametrableBullet>().ttl = 10f;
             bullet.GetComponent<IParametrableBullet>().direction = bullet.gameObject.transform.position - bulletSpawnPosition;
+            StartCoroutine(DelayedDestroyObject(bullet, 4));
         }
     }
 
     private Vector2 RandomPointInBounds(Bounds bounds)
     {
         return new Vector2(
-            Random.Range(bounds.min.x, bounds.max.x),
-            Random.Range(bounds.min.y, bounds.max.y)
+            UnityEngine.Random.Range(bounds.min.x, bounds.max.x),
+            UnityEngine.Random.Range(bounds.min.y, bounds.max.y)
         );
+    }
+
+    private IEnumerator DelayedDestroyObject(GameObject gameObject, int secs)
+    {
+        yield return new WaitForSeconds(secs);
+        gameObject.SetActive(false);
     }
 }

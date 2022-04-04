@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
                 MakeInvincible();
             }
             if (other.tag == "enemyBullet") {
-                Destroy(other.gameObject);
+                other.gameObject.SetActive(false);
             }
         }
     }
