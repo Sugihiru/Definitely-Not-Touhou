@@ -13,15 +13,18 @@ public class JunkoBossFirePattern : MonoBehaviour
     public Transform leftBulletSpawnPoint;
     public Transform rightBulletSpawnPoint;
 
+    [Header("First phase")]
     public BoxCollider2D firstPatternBulletSpawnZone;
-
-    [Header("Bullets")]
     public GameObject firstPatternBullet;
 
+    [Header("Second phase")]
+    public BoxCollider2D secondPatternLeftBulletSpawnZone;
+    public BoxCollider2D secondPatternRightBulletSpawnZone;
+    public GameObject secondPatternBullet;
 
-    private float cooldownTime = 0;
+
+    private float firstCooldownTime = 0;
     private float secondCooldownTime = 0;
-    private int firingCannonIdx;
     private Boss bossData;
     private GameObject gameField;
 
@@ -29,7 +32,6 @@ public class JunkoBossFirePattern : MonoBehaviour
     {
         bossData = GetComponent<Boss>();
         gameField = GameObject.Find("GameField");
-        firingCannonIdx = 0;
     }
 
     // Update is called once per frame
@@ -38,46 +40,33 @@ public class JunkoBossFirePattern : MonoBehaviour
         if (!bossData.IsActivated)
             return;
 
-        cooldownTime -= Time.deltaTime;
+        firstCooldownTime -= Time.deltaTime;
         secondCooldownTime -= Time.deltaTime;
-        if (bossData.nbStocks == 4)
+
+        if (bossData.nbStocks <= 4)
         {
-            if (cooldownTime < 0)
+            if (firstCooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(firstPatternBulletSpawnZone.bounds);
                 FireCircleSpread(spawnPoint, firstPatternBullet, Color.white, numberOfBullets: 28, bulletSpeed: 3f);
-                cooldownTime = 0.35f;
+                firstCooldownTime = 0.35f;
             }
         }
-        else if (bossData.nbStocks == 3)
+
+        if (bossData.nbStocks <= 3)
         {
-            if (cooldownTime < 0)
-            {
-                var bullet = Instantiate(laserBulletGameObject, middleBulletSpawnPoint.position, Quaternion.identity);
-                bullet.GetComponent<SpriteRenderer>().color = Color.red;
-                bullet.GetComponent<IParametrableBullet>().speed *= 1.5f;
-                cooldownTime = 0.75f;
-            }
             if (secondCooldownTime < 0)
             {
-                Transform transformCannonToFire;
-                if (firingCannonIdx == 0)
-                {
-                    transformCannonToFire = leftBulletSpawnPoint;
-                    firingCannonIdx = 1;
-                }
-                else
-                {
-                    transformCannonToFire = rightBulletSpawnPoint;
-                    firingCannonIdx = 0;
-                }
-                StartCoroutine(FireBigCone(transformCannonToFire.position, simpleParametrableBulletGameObject, 80, 0.17f, Color.cyan));
-                secondCooldownTime = 2.25f;
+                Vector2 spawnPoint = RandomPointInBounds(secondPatternLeftBulletSpawnZone.bounds);
+                FireCircleSpread(spawnPoint, secondPatternBullet, Color.white, numberOfBullets: 10, bulletSpeed: 3f);
+                spawnPoint = RandomPointInBounds(secondPatternRightBulletSpawnZone.bounds);
+                FireCircleSpread(spawnPoint, secondPatternBullet, Color.white, numberOfBullets: 10, bulletSpeed: 3f);
+                secondCooldownTime = 0.5f;
             }
         }
         else if (bossData.nbStocks == 2)
         {
-            if (cooldownTime < 0)
+            if (firstCooldownTime < 0)
             {
                 // Fire bouncing bullets on the side
                 var bullet = Instantiate(bouncingBulletGameObject, leftBulletSpawnPoint.position, Quaternion.identity);
@@ -104,17 +93,17 @@ public class JunkoBossFirePattern : MonoBehaviour
                 bullet.GetComponent<IParametrableBullet>().direction = new Vector3(Random.Range(0.7f, 1f), Random.Range(-1, -0.7f), 0).normalized;
                 bullet.GetComponent<SpriteRenderer>().color = Color.red;
 
-                cooldownTime = 1f;
+                firstCooldownTime = 1f;
             }
         }
         else if (bossData.nbStocks == 1)
         {
-            if (cooldownTime < 0)
+            if (firstCooldownTime < 0)
             {
                 FireCircleSpread(middleBulletSpawnPoint.position, simpleParametrableBulletGameObject, Color.blue);
                 FireCircleSpread(leftBulletSpawnPoint.position, simpleParametrableBulletGameObject, Color.blue);
                 FireCircleSpread(rightBulletSpawnPoint.position, simpleParametrableBulletGameObject, Color.blue);
-                cooldownTime = 1f;
+                firstCooldownTime = 1f;
             }
 
             if (secondCooldownTime < 0)
@@ -127,22 +116,6 @@ public class JunkoBossFirePattern : MonoBehaviour
                 secondCooldownTime = 0.125f;
             }
         }
-    }
-
-    IEnumerator FireBigCone(Vector3 bulletSpawnPosition, GameObject bulletGameObject, int nbBulletsToSpawn, float randomRange, Color color)
-    {
-        for (int i = 0; i < nbBulletsToSpawn; ++i)
-        {
-            var bullet = Instantiate(bulletGameObject, bulletSpawnPosition, Quaternion.identity);
-            bullet.GetComponent<IParametrableBullet>().direction = new Vector3(
-                Random.Range(-randomRange, randomRange),
-                -Random.Range(0.2f, 1f), 0
-            ).normalized;
-            bullet.GetComponent<IParametrableBullet>().speed *= 0.5f;
-            bullet.GetComponent<SpriteRenderer>().color = color;
-            yield return new WaitForSeconds(0.0001f);
-        }
-        yield return null;
     }
 
 
