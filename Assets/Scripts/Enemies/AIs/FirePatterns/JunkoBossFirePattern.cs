@@ -22,11 +22,19 @@ public class JunkoBossFirePattern : MonoBehaviour
     public BoxCollider2D secondPatternRightBulletSpawnZone;
     public GameObject secondPatternBullet;
 
+    [Header("Third phase")]
+    public BoxCollider2D thirdPatternLeftBulletSpawnZone;
+    public BoxCollider2D thirdPatternRightBulletSpawnZone;
+    public GameObject thirdPatternBullet;
+
 
     private float firstCooldownTime = 0;
     private float secondCooldownTime = 0;
+    private float thirdCooldownTime = 0;
     private Boss bossData;
     private GameObject gameField;
+
+    private const float bulletSpeed = 3f;
 
     private void Awake()
     {
@@ -42,13 +50,14 @@ public class JunkoBossFirePattern : MonoBehaviour
 
         firstCooldownTime -= Time.deltaTime;
         secondCooldownTime -= Time.deltaTime;
+        thirdCooldownTime -= Time.deltaTime;
 
         if (bossData.nbStocks <= 4)
         {
             if (firstCooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(firstPatternBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, firstPatternBullet, Color.white, numberOfBullets: 28, bulletSpeed: 3f);
+                FireCircleSpread(spawnPoint, firstPatternBullet, numberOfBullets: 28, bulletSpeed: bulletSpeed);
                 firstCooldownTime = 0.35f;
             }
         }
@@ -58,51 +67,31 @@ public class JunkoBossFirePattern : MonoBehaviour
             if (secondCooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(secondPatternLeftBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, secondPatternBullet, Color.white, numberOfBullets: 10, bulletSpeed: 3f);
+                FireCircleSpread(spawnPoint, secondPatternBullet, numberOfBullets: 10, bulletSpeed: bulletSpeed);
                 spawnPoint = RandomPointInBounds(secondPatternRightBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, secondPatternBullet, Color.white, numberOfBullets: 10, bulletSpeed: 3f);
+                FireCircleSpread(spawnPoint, secondPatternBullet, numberOfBullets: 10, bulletSpeed: bulletSpeed);
                 secondCooldownTime = 0.5f;
             }
         }
-        else if (bossData.nbStocks == 2)
+        
+        if (bossData.nbStocks <= 2)
         {
-            if (firstCooldownTime < 0)
+            if (thirdCooldownTime < 0)
             {
-                // Fire bouncing bullets on the side
-                var bullet = Instantiate(bouncingBulletGameObject, leftBulletSpawnPoint.position, Quaternion.identity);
-                bullet.GetComponent<IParametrableBullet>().direction = new Vector3(Random.Range(-1f, -0.3f), Random.Range(-1, -0.3f), 0).normalized;
-                bullet.GetComponent<SpriteRenderer>().color = Color.green;
-
-                bullet = Instantiate(bouncingBulletGameObject, rightBulletSpawnPoint.position, Quaternion.identity);
-                bullet.GetComponent<IParametrableBullet>().direction = new Vector3(Random.Range(0.3f, 1f), Random.Range(-1, -0.3f), 0).normalized;
-                bullet.GetComponent<SpriteRenderer>().color = Color.green;
-
-                // Fire three lasers from the main cannon
-                // Left one
-                bullet = Instantiate(laserBulletGameObject, middleBulletSpawnPoint.position, Quaternion.identity);
-                bullet.GetComponent<IParametrableBullet>().direction = new Vector3(Random.Range(-1f, -0.7f), Random.Range(-1, -0.7f), 0).normalized;
-                bullet.GetComponent<SpriteRenderer>().color = Color.red;
-
-                // Middle one
-                bullet = Instantiate(laserBulletGameObject, middleBulletSpawnPoint.position, Quaternion.identity);
-                bullet.GetComponent<IParametrableBullet>().direction = new Vector3(Random.Range(-0.1f, 0.1f), -Random.Range(0.2f, 1f), 0).normalized;
-                bullet.GetComponent<SpriteRenderer>().color = Color.red;
-
-                // Right one
-                bullet = Instantiate(laserBulletGameObject, middleBulletSpawnPoint.position, Quaternion.identity);
-                bullet.GetComponent<IParametrableBullet>().direction = new Vector3(Random.Range(0.7f, 1f), Random.Range(-1, -0.7f), 0).normalized;
-                bullet.GetComponent<SpriteRenderer>().color = Color.red;
-
-                firstCooldownTime = 1f;
+                Vector2 spawnPoint = RandomPointInBounds(thirdPatternLeftBulletSpawnZone.bounds);
+                FireCircleSpread(spawnPoint, thirdPatternBullet, numberOfBullets: 52, bulletSpeed: bulletSpeed);
+                spawnPoint = RandomPointInBounds(thirdPatternRightBulletSpawnZone.bounds);
+                FireCircleSpread(spawnPoint, thirdPatternBullet, numberOfBullets: 52, bulletSpeed: bulletSpeed);
+                thirdCooldownTime = 1f;
             }
         }
         else if (bossData.nbStocks == 1)
         {
             if (firstCooldownTime < 0)
             {
-                FireCircleSpread(middleBulletSpawnPoint.position, simpleParametrableBulletGameObject, Color.blue);
-                FireCircleSpread(leftBulletSpawnPoint.position, simpleParametrableBulletGameObject, Color.blue);
-                FireCircleSpread(rightBulletSpawnPoint.position, simpleParametrableBulletGameObject, Color.blue);
+                FireCircleSpread(middleBulletSpawnPoint.position, simpleParametrableBulletGameObject);
+                FireCircleSpread(leftBulletSpawnPoint.position, simpleParametrableBulletGameObject);
+                FireCircleSpread(rightBulletSpawnPoint.position, simpleParametrableBulletGameObject);
                 firstCooldownTime = 1f;
             }
 
@@ -119,7 +108,7 @@ public class JunkoBossFirePattern : MonoBehaviour
     }
 
 
-    private void FireCircleSpread(Vector3 bulletSpawnPosition, GameObject bulletGameObject, Color color, int numberOfBullets = 16, float bulletSpeed = 2f)
+    private void FireCircleSpread(Vector3 bulletSpawnPosition, GameObject bulletGameObject, int numberOfBullets = 16, float bulletSpeed = 2f)
     {
         GameObject bullet;
         const float radius = 0.5f;
