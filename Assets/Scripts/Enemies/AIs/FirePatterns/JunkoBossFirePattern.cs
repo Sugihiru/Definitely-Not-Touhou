@@ -45,7 +45,7 @@ public class JunkoBossFirePattern : MonoBehaviour
             if (cooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(firstPatternBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, firstPatternBullet, Color.white);
+                FireCircleSpread(spawnPoint, firstPatternBullet, Color.white, numberOfBullets: 28, bulletSpeed: 3f);
                 cooldownTime = 0.35f;
             }
         }
@@ -146,11 +146,10 @@ public class JunkoBossFirePattern : MonoBehaviour
     }
 
 
-    private void FireCircleSpread(Vector3 bulletSpawnPosition, GameObject bulletGameObject, Color color)
+    private void FireCircleSpread(Vector3 bulletSpawnPosition, GameObject bulletGameObject, Color color, int numberOfBullets = 16, float bulletSpeed = 2f)
     {
         GameObject bullet;
         const float radius = 0.5f;
-        const int numberOfBullets = 16;
 
         for (var i = 0; i < numberOfBullets; i++)
         {
@@ -159,7 +158,7 @@ public class JunkoBossFirePattern : MonoBehaviour
 
             bullet = Instantiate(bulletGameObject, new Vector3(x, y, 0), Quaternion.identity);
 
-            bullet.GetComponent<IParametrableBullet>().speed = 2f;
+            bullet.GetComponent<IParametrableBullet>().speed = bulletSpeed;
             bullet.GetComponent<IParametrableBullet>().ttl = 10f;
             bullet.GetComponent<IParametrableBullet>().direction = bullet.gameObject.transform.position - bulletSpawnPosition;
         }
