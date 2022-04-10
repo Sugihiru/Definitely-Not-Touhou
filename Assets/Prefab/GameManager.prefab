@@ -60,10 +60,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPhaseBulletsPool: []
   firstPhaseBulletPrefab: {fileID: 2767295866381788651, guid: c6bc9eaac4dd22240840402ecabb5237, type: 3}
-  firstPhaseBulletAmountInPool: 336
+  firstPhaseBulletAmountInPool: 155
   secondPhaseBulletsPool: []
   secondPhaseBulletPrefab: {fileID: 2767295866381788651, guid: 4486d2ce4ec58f84aa1b8b6c646cf3f2, type: 3}
-  secondPhaseBulletAmountInPool: 160
+  secondPhaseBulletAmountInPool: 100
   thirdPhaseBulletsPool: []
   thirdPhaseBulletPrefab: {fileID: 2767295866381788651, guid: 9a517a3da60db574fa74b1135fce0202, type: 3}
-  thirdPhaseBulletAmountInPool: 520
+  thirdPhaseBulletAmountInPool: 180

@@ -73,7 +73,7 @@ public class JunkoBossFirePattern : MonoBehaviour
                 secondCooldownTime = 0.65f;
             }
         }
-        
+
         if (bossData.nbStocks <= 2)
         {
             if (thirdCooldownTime < 0)
@@ -127,7 +127,6 @@ public class JunkoBossFirePattern : MonoBehaviour
 
             bullet.GetComponent<IParametrableBullet>().speed = bulletSpeed;
             bullet.GetComponent<IParametrableBullet>().direction = bullet.gameObject.transform.position - bulletSpawnPosition;
-            StartCoroutine(DelayedDestroyObject(bullet, 10));
         }
     }
 
@@ -137,11 +136,5 @@ public class JunkoBossFirePattern : MonoBehaviour
             UnityEngine.Random.Range(bounds.min.x, bounds.max.x),
             UnityEngine.Random.Range(bounds.min.y, bounds.max.y)
         );
-    }
-
-    private IEnumerator DelayedDestroyObject(GameObject gameObject, int secs)
-    {
-        yield return new WaitForSeconds(secs);
-        gameObject.SetActive(false);
     }
 }

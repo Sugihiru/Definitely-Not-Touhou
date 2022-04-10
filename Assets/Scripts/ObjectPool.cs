@@ -10,19 +10,19 @@ public class ObjectPool : MonoBehaviour
     [HideInInspector]
     public List<GameObject> firstPhaseBulletsPool;
     public GameObject firstPhaseBulletPrefab;
-    public int firstPhaseBulletAmountInPool;    
+    public int firstPhaseBulletAmountInPool;
 
     [Header("Junko second phase bullets")]
     [HideInInspector]
     public List<GameObject> secondPhaseBulletsPool;
     public GameObject secondPhaseBulletPrefab;
-    public int secondPhaseBulletAmountInPool;    
+    public int secondPhaseBulletAmountInPool;
 
     [Header("Junko third phase bullets")]
     [HideInInspector]
     public List<GameObject> thirdPhaseBulletsPool;
     public GameObject thirdPhaseBulletPrefab;
-    public int thirdPhaseBulletAmountInPool;    
+    public int thirdPhaseBulletAmountInPool;
 
     void Awake()
     {
@@ -38,7 +38,7 @@ public class ObjectPool : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log("Third " + thirdPhaseBulletsPool.FindAll((x) => !x.activeInHierarchy).Count);
+        // Debug.Log("Active in pool" + thirdPhaseBulletsPool.FindAll((x) => x.activeInHierarchy).Count);
     }
 
     private void InitPool(ref List<GameObject> pool, GameObject gameObjectToCreate, int amount)
