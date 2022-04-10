@@ -24,6 +24,12 @@ public class ObjectPool : MonoBehaviour
     public GameObject thirdPhaseBulletPrefab;
     public int thirdPhaseBulletAmountInPool;
 
+    [Header("Junko fourth phase bullets")]
+    [HideInInspector]
+    public List<GameObject> fourthPhaseBulletsPool;
+    public GameObject fourthPhaseBulletPrefab;
+    public int fourthPhaseBulletAmountInPool;
+
     void Awake()
     {
         SharedInstance = this;
@@ -34,11 +40,12 @@ public class ObjectPool : MonoBehaviour
         InitPool(ref firstPhaseBulletsPool, firstPhaseBulletPrefab, firstPhaseBulletAmountInPool);
         InitPool(ref secondPhaseBulletsPool, secondPhaseBulletPrefab, secondPhaseBulletAmountInPool);
         InitPool(ref thirdPhaseBulletsPool, thirdPhaseBulletPrefab, thirdPhaseBulletAmountInPool);
+        InitPool(ref fourthPhaseBulletsPool, fourthPhaseBulletPrefab, fourthPhaseBulletAmountInPool);
     }
 
     void Update()
     {
-        // Debug.Log("Active in pool" + thirdPhaseBulletsPool.FindAll((x) => x.activeInHierarchy).Count);
+        Debug.Log("Active in pool" + fourthPhaseBulletsPool.FindAll((x) => x.activeInHierarchy).Count);
     }
 
     private void InitPool(ref List<GameObject> pool, GameObject gameObjectToCreate, int amount)
@@ -67,6 +74,11 @@ public class ObjectPool : MonoBehaviour
     public GameObject GetThirdPhaseBulletFromPool()
     {
         return GetObjectFromPool(thirdPhaseBulletsPool);
+    }
+
+    public GameObject GetFourthPhaseBulletFromPool()
+    {
+        return GetObjectFromPool(fourthPhaseBulletsPool);
     }
 
     GameObject GetObjectFromPool(List<GameObject> pool)

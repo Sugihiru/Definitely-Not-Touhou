@@ -67,3 +67,6 @@ MonoBehaviour:
   thirdPhaseBulletsPool: []
   thirdPhaseBulletPrefab: {fileID: 2767295866381788651, guid: 9a517a3da60db574fa74b1135fce0202, type: 3}
   thirdPhaseBulletAmountInPool: 180
+  fourthPhaseBulletsPool: []
+  fourthPhaseBulletPrefab: {fileID: 2767295866381788651, guid: 6d86b15943318524c9f886773457cd77, type: 3}
+  fourthPhaseBulletAmountInPool: 200

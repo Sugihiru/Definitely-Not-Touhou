@@ -5,15 +5,6 @@ using UnityEngine;
 
 public class JunkoBossFirePattern : MonoBehaviour
 {
-    public GameObject slowBigBulletGameObject;
-    public GameObject simpleParametrableBulletGameObject;
-    public GameObject laserBulletGameObject;
-    public GameObject bouncingBulletGameObject;
-
-    public Transform middleBulletSpawnPoint;
-    public Transform leftBulletSpawnPoint;
-    public Transform rightBulletSpawnPoint;
-
     [Header("First phase")]
     public BoxCollider2D firstPatternBulletSpawnZone;
     public GameObject firstPatternBullet;
@@ -28,10 +19,14 @@ public class JunkoBossFirePattern : MonoBehaviour
     public BoxCollider2D thirdPatternRightBulletSpawnZone;
     public GameObject thirdPatternBullet;
 
+    [Header("Fourth phase")]
+    public Transform fourthPatternBulletSpawnCenterPoint;
+    public GameObject fourthPatternBullet;
 
     private float firstCooldownTime = 0;
     private float secondCooldownTime = 0;
     private float thirdCooldownTime = 0;
+    private float fourthCooldownTime = 0;
     private Boss bossData;
     private GameObject gameField;
 
@@ -52,6 +47,7 @@ public class JunkoBossFirePattern : MonoBehaviour
         firstCooldownTime -= Time.deltaTime;
         secondCooldownTime -= Time.deltaTime;
         thirdCooldownTime -= Time.deltaTime;
+        fourthCooldownTime -= Time.deltaTime;
 
         if (bossData.nbStocks <= 4)
         {
@@ -85,28 +81,16 @@ public class JunkoBossFirePattern : MonoBehaviour
                 thirdCooldownTime = 1.5f;
             }
         }
-        /*
-        else if (bossData.nbStocks == 1)
-        {
-            if (firstCooldownTime < 0)
-            {
-                FireCircleSpread(middleBulletSpawnPoint.position, simpleParametrableBulletGameObject);
-                FireCircleSpread(leftBulletSpawnPoint.position, simpleParametrableBulletGameObject);
-                FireCircleSpread(rightBulletSpawnPoint.position, simpleParametrableBulletGameObject);
-                firstCooldownTime = 1f;
-            }
 
-            if (secondCooldownTime < 0)
+        if (bossData.nbStocks == 1)
+        {
+            if (fourthCooldownTime < 0)
             {
-                var bullet = Instantiate(simpleParametrableBulletGameObject, new Vector3(Random.Range(-5.5f, 5.5f), 0, 0) + gameField.transform.position, Quaternion.identity);
-                bullet.GetComponent<IParametrableBullet>().direction = new Vector3(0, 1, 0).normalized;
-                bullet.GetComponent<IParametrableBullet>().speed *= 0.20f;
-                bullet.GetComponent<IParametrableBullet>().ttl = 20f;
-                bullet.GetComponent<SpriteRenderer>().color = Color.yellow;
-                secondCooldownTime = 0.125f;
+                Vector2 spawnPoint = fourthPatternBulletSpawnCenterPoint.position;
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetFourthPhaseBulletFromPool, numberOfBullets: 24, bulletSpeed: 6f);
+                fourthCooldownTime = 0.2f;
             }
         }
-        */
     }
 
 
@@ -123,10 +107,13 @@ public class JunkoBossFirePattern : MonoBehaviour
             bullet = gameObjectPooler();
             bullet.SetActive(true);
             bullet.transform.position = new Vector3(x, y, 0);
-            bullet.transform.rotation = Quaternion.identity;
 
             bullet.GetComponent<IParametrableBullet>().speed = bulletSpeed;
-            bullet.GetComponent<IParametrableBullet>().direction = bullet.gameObject.transform.position - bulletSpawnPosition;
+
+            Vector3 direction = bullet.gameObject.transform.position - bulletSpawnPosition;
+            bullet.GetComponent<IParametrableBullet>().direction = direction;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 

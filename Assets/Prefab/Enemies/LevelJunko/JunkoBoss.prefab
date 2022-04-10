@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8703922407454839604}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &205757631562746331
 BoxCollider2D:
@@ -86,7 +86,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8703922407454839604}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8496370203314570464
 BoxCollider2D:
@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 265539050881539852}
   m_Layer: 0
-  m_Name: MiddleBulletSpawnPoint
+  m_Name: Pattern4BulletSpawnCenterPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,11 +138,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821060137138499713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8703922407454839604}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847931130160510959
 GameObject:
@@ -275,7 +275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8703922407454839604}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1703907495081787132
 BoxCollider2D:
@@ -332,7 +332,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8703922407454839604}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &9076480788762748214
 BoxCollider2D:
@@ -389,7 +389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8703922407454839604}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6030832502045184246
 BoxCollider2D:
@@ -417,66 +417,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.42, y: 2.42}
   m_EdgeRadius: 0
---- !u!1 &7531533278059172916
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1219615984941346375}
-  m_Layer: 0
-  m_Name: LeftBulletSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1219615984941346375
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7531533278059172916}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -1.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8703922407454839604}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8346182364663598236
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 227047643341990812}
-  m_Layer: 0
-  m_Name: RightBulletSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &227047643341990812
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8346182364663598236}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -1.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8703922407454839604}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9103089561663980473
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,14 +450,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7679613969712627912}
-  - {fileID: 265539050881539852}
-  - {fileID: 1219615984941346375}
-  - {fileID: 227047643341990812}
   - {fileID: 8916032438530776880}
   - {fileID: 7449881470681088611}
   - {fileID: 6918848803523610974}
   - {fileID: 9043441072051819957}
   - {fileID: 3685310634907995321}
+  - {fileID: 265539050881539852}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -585,8 +523,8 @@ MonoBehaviour:
   laserBulletGameObject: {fileID: 2767295866381788651, guid: 79bd869f7aa40ff4f90b94788f5b8c0c, type: 3}
   bouncingBulletGameObject: {fileID: 2767295866381788651, guid: fd414eb797a2aa24489edd62fb5e0ba5, type: 3}
   middleBulletSpawnPoint: {fileID: 265539050881539852}
-  leftBulletSpawnPoint: {fileID: 1219615984941346375}
-  rightBulletSpawnPoint: {fileID: 227047643341990812}
+  leftBulletSpawnPoint: {fileID: 0}
+  rightBulletSpawnPoint: {fileID: 0}
   firstPatternBulletSpawnZone: {fileID: 6030832502045184246}
   firstPatternBullet: {fileID: 2767295866381788651, guid: c6bc9eaac4dd22240840402ecabb5237, type: 3}
   secondPatternLeftBulletSpawnZone: {fileID: 8496370203314570464}
@@ -595,6 +533,8 @@ MonoBehaviour:
   thirdPatternLeftBulletSpawnZone: {fileID: 1703907495081787132}
   thirdPatternRightBulletSpawnZone: {fileID: 9076480788762748214}
   thirdPatternBullet: {fileID: 2767295866381788651, guid: 9a517a3da60db574fa74b1135fce0202, type: 3}
+  fourthPatternBulletSpawnCenterPoint: {fileID: 265539050881539852}
+  fourthPatternBullet: {fileID: 2767295866381788651, guid: 6d86b15943318524c9f886773457cd77, type: 3}
 --- !u!114 &-4162923464608230995
 MonoBehaviour:
   m_ObjectHideFlags: 0
