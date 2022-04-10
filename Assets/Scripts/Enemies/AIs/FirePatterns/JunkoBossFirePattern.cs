@@ -58,7 +58,7 @@ public class JunkoBossFirePattern : MonoBehaviour
             if (firstCooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(firstPatternBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetFirstPhaseBulletFromPool, numberOfBullets: 28, bulletSpeed: bulletSpeed);
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetFirstPhaseBulletFromPool, numberOfBullets: 24, bulletSpeed: 3f);
                 firstCooldownTime = 0.35f;
             }
         }
@@ -67,10 +67,10 @@ public class JunkoBossFirePattern : MonoBehaviour
             if (secondCooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(secondPatternLeftBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetSecondPhaseBulletFromPool, numberOfBullets: 10, bulletSpeed: bulletSpeed);
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetSecondPhaseBulletFromPool, numberOfBullets: 10, bulletSpeed: 2f);
                 spawnPoint = RandomPointInBounds(secondPatternRightBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetSecondPhaseBulletFromPool, numberOfBullets: 10, bulletSpeed: bulletSpeed);
-                secondCooldownTime = 0.5f;
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetSecondPhaseBulletFromPool, numberOfBullets: 10, bulletSpeed: 2f);
+                secondCooldownTime = 0.65f;
             }
         }
         
@@ -79,10 +79,10 @@ public class JunkoBossFirePattern : MonoBehaviour
             if (thirdCooldownTime < 0)
             {
                 Vector2 spawnPoint = RandomPointInBounds(thirdPatternLeftBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetThirdPhaseBulletFromPool, numberOfBullets: 52, bulletSpeed: bulletSpeed);
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetThirdPhaseBulletFromPool, numberOfBullets: 52, bulletSpeed: 4f);
                 spawnPoint = RandomPointInBounds(thirdPatternRightBulletSpawnZone.bounds);
-                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetThirdPhaseBulletFromPool, numberOfBullets: 52, bulletSpeed: bulletSpeed);
-                thirdCooldownTime = 1f;
+                FireCircleSpread(spawnPoint, ObjectPool.SharedInstance.GetThirdPhaseBulletFromPool, numberOfBullets: 52, bulletSpeed: 4f);
+                thirdCooldownTime = 1.5f;
             }
         }
         /*
@@ -127,7 +127,7 @@ public class JunkoBossFirePattern : MonoBehaviour
 
             bullet.GetComponent<IParametrableBullet>().speed = bulletSpeed;
             bullet.GetComponent<IParametrableBullet>().direction = bullet.gameObject.transform.position - bulletSpawnPosition;
-            StartCoroutine(DelayedDestroyObject(bullet, 4));
+            StartCoroutine(DelayedDestroyObject(bullet, 10));
         }
     }
 

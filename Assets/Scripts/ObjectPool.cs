@@ -79,6 +79,8 @@ public class ObjectPool : MonoBehaviour
             }
         }
         Debug.Log("Failed to get object from pool");
-        return null;
+        GameObject newObject = Instantiate(pool[0]);
+        pool.Add(newObject);
+        return newObject;
     }
 }
