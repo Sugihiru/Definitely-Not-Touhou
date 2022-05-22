@@ -518,13 +518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702a376f866543f469f991b47aa5110d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowBigBulletGameObject: {fileID: 2767295866381788651, guid: 0331b1613c8021d4e9b26db0fe5c665e, type: 3}
-  simpleParametrableBulletGameObject: {fileID: 2767295866381788651, guid: b3ca3af97f053934a85b8162924ce488, type: 3}
-  laserBulletGameObject: {fileID: 2767295866381788651, guid: 79bd869f7aa40ff4f90b94788f5b8c0c, type: 3}
-  bouncingBulletGameObject: {fileID: 2767295866381788651, guid: fd414eb797a2aa24489edd62fb5e0ba5, type: 3}
-  middleBulletSpawnPoint: {fileID: 265539050881539852}
-  leftBulletSpawnPoint: {fileID: 0}
-  rightBulletSpawnPoint: {fileID: 0}
   firstPatternBulletSpawnZone: {fileID: 6030832502045184246}
   firstPatternBullet: {fileID: 2767295866381788651, guid: c6bc9eaac4dd22240840402ecabb5237, type: 3}
   secondPatternLeftBulletSpawnZone: {fileID: 8496370203314570464}
@@ -554,8 +547,11 @@ MonoBehaviour:
   scoreCollectible: {fileID: 7563638756546119839, guid: 61978f9b2e773c640bfb8d93b1f8ce2f, type: 3}
   phaseDescriptors:
   - maxHealth: 2500
+    destroyBulletsOnEnteringPhase: 1
   - maxHealth: 2500
+    destroyBulletsOnEnteringPhase: 1
   - maxHealth: 2500
+    destroyBulletsOnEnteringPhase: 0
   nbStocks: 4
   phaseClip: {fileID: 8300000, guid: 6d5d9930c190f7c43b78a41e3395aad4, type: 3}
 --- !u!95 &439457012875408083

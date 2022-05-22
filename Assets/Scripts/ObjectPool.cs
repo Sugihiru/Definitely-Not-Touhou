@@ -45,7 +45,7 @@ public class ObjectPool : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Active in pool" + fourthPhaseBulletsPool.FindAll((x) => x.activeInHierarchy).Count);
+        // Debug.Log("Active in pool" + fourthPhaseBulletsPool.FindAll((x) => x.activeInHierarchy).Count);
     }
 
     private void InitPool(ref List<GameObject> pool, GameObject gameObjectToCreate, int amount)

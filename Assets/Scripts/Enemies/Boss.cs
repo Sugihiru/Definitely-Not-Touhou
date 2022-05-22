@@ -8,10 +8,12 @@ using UnityEngine.UI;
 public struct BossPhaseDescriptor
 {
     public int maxHealth;
+    public bool destroyBulletsOnEnteringPhase;
 
-    public BossPhaseDescriptor(Sprite sprite, int maxHealth)
+    public BossPhaseDescriptor(Sprite sprite, int maxHealth, bool destroyBulletsOnEnteringPhase)
     {
         this.maxHealth = maxHealth;
+        this.destroyBulletsOnEnteringPhase = destroyBulletsOnEnteringPhase;
     }
 }
 
@@ -69,7 +71,6 @@ public class Boss : EnemyDamaged
         if (nbStocks == 0)
         {
             base.DestroyOnKill();
-            ConvertAllBulletsToScore();
             GameManager.instance.ChangeLevel();
             return;
         }
@@ -79,6 +80,10 @@ public class Boss : EnemyDamaged
         }
 
         int idx = maxNbStocks - nbStocks - 1;
+        if (phaseDescriptors[idx].destroyBulletsOnEnteringPhase)
+        {
+            DestroyAllBullets();
+        }
         SetMaxHealth(phaseDescriptors[idx].maxHealth);
         StartCoroutine(BossPhaseChanging(idx, nbStocks));
     }
@@ -90,12 +95,11 @@ public class Boss : EnemyDamaged
         IsActivated = true;
     }
 
-    private void ConvertAllBulletsToScore()
+    private void DestroyAllBullets()
     {
         foreach (var bullet in GameObject.FindGameObjectsWithTag("enemyBullet"))
         {
-            Instantiate(scoreCollectible, bullet.transform.position, Quaternion.identity);
-            Destroy(bullet);
+            bullet.SetActive(false);
         }
     }
 
