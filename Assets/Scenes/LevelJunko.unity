@@ -551,6 +551,10 @@ PrefabInstance:
       propertyPath: focusModifier
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1415548663073680850, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5820330954632134656, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
       propertyPath: m_Name
       value: Player
