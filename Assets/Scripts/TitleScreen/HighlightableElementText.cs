@@ -6,12 +6,11 @@ using UnityEngine;
 public class HighlightableElementText : MonoBehaviour, IHighlightableElement
 {
     TextMeshProUGUI text;
-    Color32 initialColor;
+    public Color32 initialColor;
 
-    void Start()
+    void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
-        initialColor = text.color;
     }
 
     public void Highlight()
