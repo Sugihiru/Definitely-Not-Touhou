@@ -20,12 +20,21 @@ public struct TitleScreenMenuElement
 public class TitleScreen : MonoBehaviour
 {
     public List<TitleScreenMenuElement> menuElements;
+    Stack<MenuScreenType> previousMenuTypes = new Stack<MenuScreenType>();
 
-    public void ChangeCurrentMenu(MenuScreenType newMenu)
+    public void ChangeCurrentMenu(MenuScreenType newMenu, bool isGoingToPreviousMenu = false)
     {
         foreach (var menuElement in menuElements)
         {
+            if (!isGoingToPreviousMenu && menuElement.parent.activeInHierarchy)
+                previousMenuTypes.Push(menuElement.type);
             menuElement.parent.SetActive(menuElement.type == newMenu);
         }
+    }
+
+    public void GoToPreviousMenu()
+    {
+        if (previousMenuTypes.Count > 0)
+            ChangeCurrentMenu(previousMenuTypes.Pop(), true);
     }
 }

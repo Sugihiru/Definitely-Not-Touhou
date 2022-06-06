@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class DifficultyChoiceMenu : AMenu
 {
     public string firstScene;
-    public TitleScreen titleScreen;
 
     void StartGameNormal()
     {

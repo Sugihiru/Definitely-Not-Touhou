@@ -1,10 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : AMenu
 {
     public string firstScene;
-    public TitleScreen titleScreen;
+
+    void Awake()
+    {
+        onBackKeyPressed = GoToQuitChoice;
+    }
 
     void EnterSurvivalModeDifficultyChoice()
     {
@@ -24,5 +29,10 @@ public class MainMenu : AMenu
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
+    }
+
+    void GoToQuitChoice()
+    {
+        UpdateCurrentSelectedMenu(menuElements.Count - 1);
     }
 }

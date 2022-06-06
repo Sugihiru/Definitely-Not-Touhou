@@ -18,8 +18,11 @@ public struct MenuElement
 public abstract class AMenu : MonoBehaviour
 {
     [SerializeField]
+    protected TitleScreen titleScreen;
+    [SerializeField]
     protected List<MenuElement> menuElements;
     protected int currentPlayerChoiceIdx = 0;
+    protected Action onBackKeyPressed;
 
     void Start()
     {
@@ -32,23 +35,35 @@ public abstract class AMenu : MonoBehaviour
         var previousMenuIdx = currentPlayerChoiceIdx;
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            currentPlayerChoiceIdx = Math.Max(currentPlayerChoiceIdx - 1, 0);
+            UpdateCurrentSelectedMenu(Math.Max(currentPlayerChoiceIdx - 1, 0));
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            currentPlayerChoiceIdx = Math.Min(currentPlayerChoiceIdx + 1, menuElements.Count - 1);
-        }
-
-        if (currentPlayerChoiceIdx != previousMenuIdx)
-        {
-            menuElements[previousMenuIdx].parent.GetComponent<IHighlightableElement>().UnHightlight();
-            menuElements[currentPlayerChoiceIdx].parent.GetComponent<IHighlightableElement>().Highlight();
-            // Play sound
+            UpdateCurrentSelectedMenu(Math.Min(currentPlayerChoiceIdx + 1, menuElements.Count - 1));
         }
 
         if (Input.GetButtonDown("Fire1"))
         {
             Invoke(menuElements[currentPlayerChoiceIdx].callback, 0);
+        }
+        if (Input.GetButtonDown("Bomb"))
+        {
+            if (onBackKeyPressed != null)
+                onBackKeyPressed();
+            else
+                titleScreen.GoToPreviousMenu();
+        }
+    }
+
+    protected void UpdateCurrentSelectedMenu(int newPlayerChoiceIdx)
+    {
+        if (newPlayerChoiceIdx != currentPlayerChoiceIdx)
+        {
+            menuElements[currentPlayerChoiceIdx].parent.GetComponent<IHighlightableElement>().UnHightlight();
+            menuElements[newPlayerChoiceIdx].parent.GetComponent<IHighlightableElement>().Highlight();
+            // Play sound
+
+            currentPlayerChoiceIdx = newPlayerChoiceIdx;
         }
     }
 }
