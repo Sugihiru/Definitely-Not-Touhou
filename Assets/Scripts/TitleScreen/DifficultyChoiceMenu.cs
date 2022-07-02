@@ -30,6 +30,7 @@ public class DifficultyChoiceMenu : AMenu
 
     void StartGame()
     {
-        SceneManager.LoadScene(firstScene);
+        LoadingData.sceneToLoad = firstScene;
+        SceneManager.LoadScene("LoadingScene");
     }
 }
