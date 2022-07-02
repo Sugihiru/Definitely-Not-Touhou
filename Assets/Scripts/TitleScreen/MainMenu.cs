@@ -33,6 +33,6 @@ public class MainMenu : AMenu
 
     void GoToQuitChoice()
     {
-        UpdateCurrentSelectedMenu(menuElements.Count - 1);
+        UpdateCurrentSelectedMenu(menuElements.Count - 1, playSfx: false);
     }
 }
