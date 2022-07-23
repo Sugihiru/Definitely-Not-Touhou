@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-   public Animator crossfadeTransition;
-   public Animator canvasCamera;
-   public Animator CanvasOverlay;
-   public Animator GameField;
-   public Level01Descriptor levelDescriptor;
-   public AudioSource audioSource;
-   public float timeToDelay;
-    
+    public Animator crossfadeTransition;
+    public Animator canvasCamera;
+    public Animator CanvasOverlay;
+    public Animator GameField;
+    public LevelJunkoDescriptor levelDescriptor;
+    public AudioSource audioSource;
+    public float timeToDelay;
+
     // Start is called before the first frame update
     public void PrepareToStart()
     {
-       StartCoroutine(StartLevel());
+        StartCoroutine(StartLevel());
     }
 
     public void ChangeLevel(int index)

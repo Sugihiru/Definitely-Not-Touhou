@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242adb7a1bbea514b8d7ed3c1e12b265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesSpawnData: []
   bossSpawnData:
     spawnPosition: {x: 0, y: 10, z: 0}
     spawnTime: 0
@@ -2482,7 +2481,7 @@ PrefabInstance:
       objectReference: {fileID: 1977607917}
     - target: {fileID: 88607616116512608, guid: e119e76ef6f536b479f794952a4b8eae, type: 3}
       propertyPath: timeToDelay
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 88607616116512608, guid: e119e76ef6f536b479f794952a4b8eae, type: 3}
       propertyPath: canvasCamera
@@ -2499,6 +2498,6 @@ PrefabInstance:
     - target: {fileID: 88607616116512608, guid: e119e76ef6f536b479f794952a4b8eae, type: 3}
       propertyPath: level01Descriptor
       value: 
-      objectReference: {fileID: 51818045}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e119e76ef6f536b479f794952a4b8eae, type: 3}

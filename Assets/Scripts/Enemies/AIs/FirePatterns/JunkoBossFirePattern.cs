@@ -3,40 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JunkoBossFirePattern : MonoBehaviour
+public class JunkoBossFirePattern : AJunkoBossFirePattern
 {
-    [Header("First phase")]
-    public BoxCollider2D firstPatternBulletSpawnZone;
-    public GameObject firstPatternBullet;
-
-    [Header("Second phase")]
-    public BoxCollider2D secondPatternLeftBulletSpawnZone;
-    public BoxCollider2D secondPatternRightBulletSpawnZone;
-    public GameObject secondPatternBullet;
-
-    [Header("Third phase")]
-    public BoxCollider2D thirdPatternLeftBulletSpawnZone;
-    public BoxCollider2D thirdPatternRightBulletSpawnZone;
-    public GameObject thirdPatternBullet;
-
-    [Header("Fourth phase")]
-    public Transform fourthPatternBulletSpawnCenterPoint;
-    public GameObject fourthPatternBullet;
-
     private float firstCooldownTime = 0;
     private float secondCooldownTime = 0;
     private float thirdCooldownTime = 0;
     private float fourthCooldownTime = 0;
-    private Boss bossData;
-    private GameObject gameField;
 
     private const float bulletSpeed = 3f;
 
-    private void Awake()
-    {
-        bossData = GetComponent<Boss>();
-        gameField = GameObject.Find("GameField");
-    }
 
     // Update is called once per frame
     void Update()
@@ -91,37 +66,5 @@ public class JunkoBossFirePattern : MonoBehaviour
                 fourthCooldownTime = 0.2f;
             }
         }
-    }
-
-
-    private void FireCircleSpread(Vector3 bulletSpawnPosition, Func<GameObject> gameObjectPooler, int numberOfBullets = 16, float bulletSpeed = 2f)
-    {
-        GameObject bullet;
-        const float radius = 0.5f;
-
-        for (var i = 0; i < numberOfBullets; i++)
-        {
-            var x = bulletSpawnPosition.x + radius * Mathf.Cos(2 * Mathf.PI * i / numberOfBullets);
-            var y = bulletSpawnPosition.y + radius * Mathf.Sin(2 * Mathf.PI * i / numberOfBullets);
-
-            bullet = gameObjectPooler();
-            bullet.SetActive(true);
-            bullet.transform.position = new Vector3(x, y, 0);
-
-            bullet.GetComponent<IParametrableBullet>().speed = bulletSpeed;
-
-            Vector3 direction = bullet.gameObject.transform.position - bulletSpawnPosition;
-            bullet.GetComponent<IParametrableBullet>().direction = direction;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        }
-    }
-
-    private Vector2 RandomPointInBounds(Bounds bounds)
-    {
-        return new Vector2(
-            UnityEngine.Random.Range(bounds.min.x, bounds.max.x),
-            UnityEngine.Random.Range(bounds.min.y, bounds.max.y)
-        );
     }
 }

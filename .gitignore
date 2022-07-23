@@ -94,3 +94,6 @@ _UpgradeReport_Files/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+Assets/PlayerPrefsEditor/
+Assets/PlayerPrefsEditor.meta

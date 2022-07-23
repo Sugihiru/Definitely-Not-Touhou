@@ -20,11 +20,11 @@ public struct BossPhaseDescriptor
 
 public class Boss : EnemyDamaged
 {
-    public GameObject scoreCollectible;
     public List<BossPhaseDescriptor> phaseDescriptors = new List<BossPhaseDescriptor>();
     public int nbStocks = 3;
     public bool IsActivated { get; private set; }
     public AudioClip phaseClip;
+    public bool displayBarLife = true;
 
     private BossLifeBar bossLifeBar;
     private int maxNbStocks;
@@ -33,16 +33,20 @@ public class Boss : EnemyDamaged
     void Start()
     {
         maxNbStocks = nbStocks;
-        // Find BossLifeBar GameObject by name, even if it's disabled
-        BossLifeBar[] objs = Resources.FindObjectsOfTypeAll<BossLifeBar>();
-        for (int i = 0; i < objs.Length; i++)
+
+        if (displayBarLife)
         {
-            if (objs[i].hideFlags == HideFlags.None)
+            // Find BossLifeBar GameObject by name, even if it's disabled
+            BossLifeBar[] objs = Resources.FindObjectsOfTypeAll<BossLifeBar>();
+            for (int i = 0; i < objs.Length; i++)
             {
-                if (objs[i].name == "BossLifeBar")
+                if (objs[i].hideFlags == HideFlags.None)
                 {
-                    bossLifeBar = objs[i];
-                    break;
+                    if (objs[i].name == "BossLifeBar")
+                    {
+                        bossLifeBar = objs[i];
+                        break;
+                    }
                 }
             }
         }
@@ -55,11 +59,15 @@ public class Boss : EnemyDamaged
 
         if (other.tag == "playerBullet")
         {
-            health -= other.GetComponent<PlayerBulletBehavior>().damage;
-            bossLifeBar.SetFillAmount((float)base.health / (float)base.maxHealth);
-            if (health <= 0)
+            if (!isInvincible)
             {
-                RemoveStock();
+                health -= other.GetComponent<PlayerBulletBehavior>().damage;
+                if (displayBarLife)
+                    bossLifeBar.SetFillAmount((float)base.health / (float)base.maxHealth);
+                if (health <= 0)
+                {
+                    RemoveStock();
+                }
             }
             Destroy(other.gameObject);
         }
@@ -91,7 +99,8 @@ public class Boss : EnemyDamaged
     // Enable lifebar + enable firing
     public void Activate()
     {
-        bossLifeBar.gameObject.SetActive(true);
+        if (displayBarLife)
+            bossLifeBar.gameObject.SetActive(true);
         IsActivated = true;
     }
 

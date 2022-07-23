@@ -8,6 +8,7 @@ public class EnemyDamaged : MonoBehaviour
     public int scoreValue;
     public AudioClip deathClip;
     public int health;
+    public bool isInvincible = false;
 
     private void Awake()
     {
@@ -16,12 +17,15 @@ public class EnemyDamaged : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "playerBullet" && health>0)
+        if (other.tag == "playerBullet" && health > 0)
         {
-            health -= other.GetComponent<PlayerBulletBehavior>().damage;
-            if (health <= 0)
+            if (!isInvincible)
             {
-                DestroyOnKill();
+                health -= other.GetComponent<PlayerBulletBehavior>().damage;
+                if (health <= 0)
+                {
+                    DestroyOnKill();
+                }
             }
             Destroy(other.gameObject);
         }
