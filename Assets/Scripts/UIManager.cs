@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance = null;
     public BossLifeBar bossLifeBar;
+    public BattleTimer battleTimer;
 
     private GameMode gameMode;
 
@@ -32,6 +33,10 @@ public class UIManager : MonoBehaviour
         {
             bossLifeBar.gameObject.SetActive(true);
             bossLifeBar.AttachBoss(boss);
+        }
+        else if (gameMode == GameMode.Survival)
+        {
+            battleTimer.gameObject.SetActive(true);
         }
     }
 

@@ -1179,7 +1179,7 @@ GameObject:
   - component: {fileID: 926571399}
   - component: {fileID: 926571401}
   m_Layer: 0
-  m_Name: Timer
+  m_Name: BattleTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1224,10 +1224,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00.00
+  m_text: 00.00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: df127c231f707eb4bbccac0e946ff60f, type: 2}
-  m_sharedMaterial: {fileID: 8691134345310221261, guid: df127c231f707eb4bbccac0e946ff60f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a933fa36bd9c3984b8f8c882cbbedd9f, type: 2}
+  m_sharedMaterial: {fileID: -4354740714357306822, guid: a933fa36bd9c3984b8f8c882cbbedd9f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1872,6 +1872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossLifeBar: {fileID: 1246342597}
+  battleTimer: {fileID: 926571401}
 --- !u!1001 &1448279725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2342,7 +2343,7 @@ CanvasGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598817204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
