@@ -614,6 +614,9 @@ MonoBehaviour:
   initialColor:
     serializedVersion: 2
     rgba: 4292024319
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!1 &412330288
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +911,9 @@ MonoBehaviour:
   initialColor:
     serializedVersion: 2
     rgba: 4287443738
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!114 &810912167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,6 +1313,9 @@ MonoBehaviour:
   initialColor:
     serializedVersion: 2
     rgba: 4290458623
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!114 &857872685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1773,6 +1782,9 @@ MonoBehaviour:
   initialColor:
     serializedVersion: 2
     rgba: 4294941047
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!114 &1248960506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1980,7 +1992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6068344fc34f1c4bb4c03bde7e05998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuGroup: {fileID: 0}
+  menuGroup: {fileID: 19757144}
   menuElements:
   - callback: StartGameNormal
     parent: {fileID: 1248960503}
@@ -2156,6 +2168,9 @@ MonoBehaviour:
   initialColor:
     serializedVersion: 2
     rgba: 4278190335
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!1 &1888804080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,6 +2226,9 @@ MonoBehaviour:
   initialColor:
     serializedVersion: 2
     rgba: 4292035605
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!114 &1888804083
 MonoBehaviour:
   m_ObjectHideFlags: 0

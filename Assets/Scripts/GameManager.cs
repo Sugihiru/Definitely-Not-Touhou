@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
         gameState = "gameOver";
         Time.timeScale = 0;
         UIManager.instance.ShowGameOverScreen();
+        BgmManager.instance.ChangeToGameOverBgm();
     }
 }
 
