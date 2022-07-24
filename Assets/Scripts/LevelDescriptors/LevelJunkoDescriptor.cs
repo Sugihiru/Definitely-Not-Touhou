@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,15 +19,15 @@ public class LevelJunkoDescriptor : MonoBehaviour
     public IEnumerator SpawnBoss(EnemySpawnData bossSpawnData)
     {
         yield return new WaitForSeconds(bossSpawnData.spawnTime);
-        var difficulty = PlayerPrefs.GetString("Difficulty");
-        var gameMode = PlayerPrefs.GetString("GameMode");
+        var difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString("Difficulty")); PlayerPrefs.GetString("Difficulty");
+        var gameMode = (GameMode)Enum.Parse(typeof(GameMode), PlayerPrefs.GetString("GameMode"));
 
         var enemyGameObject = Instantiate(bossSpawnData.enemyGameObject, bossSpawnData.spawnPosition + gameField.transform.position, Quaternion.identity);
 
         var firePatternScript = System.Type.GetType($"JunkoBoss{gameMode}{difficulty}FirePattern");
         enemyGameObject.AddComponent(firePatternScript);
 
-        if (gameMode == "Survival")
+        if (gameMode == GameMode.Survival)
         {
             var bossBehavior = enemyGameObject.GetComponent<Boss>();
             bossBehavior.isInvincible = true;

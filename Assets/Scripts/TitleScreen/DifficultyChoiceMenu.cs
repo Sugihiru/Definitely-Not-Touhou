@@ -9,22 +9,22 @@ public class DifficultyChoiceMenu : AMenu
 
     void StartGameNormal()
     {
-        StartGameWithDifficulty("Normal");
+        StartGameWithDifficulty(Difficulty.Normal);
     }
 
     void StartGameHard()
     {
-        StartGameWithDifficulty("Hard");
+        StartGameWithDifficulty(Difficulty.Hard);
     }
 
     void StartGameLunatic()
     {
-        StartGameWithDifficulty("Lunatic");
+        StartGameWithDifficulty(Difficulty.Lunatic);
     }
 
-    void StartGameWithDifficulty(string difficulty)
+    void StartGameWithDifficulty(Difficulty difficulty)
     {
-        PlayerPrefs.SetString("Difficulty", difficulty);
+        PlayerPrefs.SetString("Difficulty", difficulty.ToString());
         StartGame();
     }
 

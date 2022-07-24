@@ -13,13 +13,13 @@ public class MainMenu : AMenu
 
     void EnterSurvivalModeDifficultyChoice()
     {
-        PlayerPrefs.SetString("GameMode", "Survival");
+        PlayerPrefs.SetString("GameMode", GameMode.Survival.ToString());
         titleScreen.ChangeCurrentMenu(MenuScreenType.DifficultyChoiceMenu);
     }
 
     void ExtraStartGame()
     {
-        PlayerPrefs.SetString("GameMode", "Extra");
+        PlayerPrefs.SetString("GameMode", GameMode.Challenge.ToString());
         SceneManager.LoadScene(firstScene);
     }
 
