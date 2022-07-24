@@ -24,7 +24,7 @@ public class DifficultyChoiceMenu : AMenu
 
     void StartGameWithDifficulty(Difficulty difficulty)
     {
-        PlayerPrefs.SetString("Difficulty", difficulty.ToString());
+        GameConfiguration.SetDifficulty(difficulty);
         StartGame();
     }
 

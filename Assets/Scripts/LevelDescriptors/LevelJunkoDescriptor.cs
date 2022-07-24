@@ -19,8 +19,8 @@ public class LevelJunkoDescriptor : MonoBehaviour
     public IEnumerator SpawnBoss(EnemySpawnData bossSpawnData)
     {
         yield return new WaitForSeconds(bossSpawnData.spawnTime);
-        var difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), PlayerPrefs.GetString("Difficulty")); PlayerPrefs.GetString("Difficulty");
-        var gameMode = (GameMode)Enum.Parse(typeof(GameMode), PlayerPrefs.GetString("GameMode"));
+        var difficulty = GameConfiguration.GetCurrentDifficulty();
+        var gameMode = GameConfiguration.GetCurrentGameMode();
 
         var enemyGameObject = Instantiate(bossSpawnData.enemyGameObject, bossSpawnData.spawnPosition + gameField.transform.position, Quaternion.identity);
 
@@ -31,7 +31,6 @@ public class LevelJunkoDescriptor : MonoBehaviour
         {
             var bossBehavior = enemyGameObject.GetComponent<Boss>();
             bossBehavior.isInvincible = true;
-            bossBehavior.displayBarLife = false;
         }
 
         enemyGameObject.transform.parent = gameField.transform;

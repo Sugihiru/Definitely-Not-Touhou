@@ -24,32 +24,13 @@ public class Boss : EnemyDamaged
     public int nbStocks = 3;
     public bool IsActivated { get; private set; }
     public AudioClip phaseClip;
-    public bool displayBarLife = true;
 
-    private BossLifeBar bossLifeBar;
     private int maxNbStocks;
 
     // Start is called before the first frame update
     void Start()
     {
         maxNbStocks = nbStocks;
-
-        if (displayBarLife)
-        {
-            // Find BossLifeBar GameObject by name, even if it's disabled
-            BossLifeBar[] objs = Resources.FindObjectsOfTypeAll<BossLifeBar>();
-            for (int i = 0; i < objs.Length; i++)
-            {
-                if (objs[i].hideFlags == HideFlags.None)
-                {
-                    if (objs[i].name == "BossLifeBar")
-                    {
-                        bossLifeBar = objs[i];
-                        break;
-                    }
-                }
-            }
-        }
     }
 
     public new void OnTriggerEnter2D(Collider2D other)
@@ -62,8 +43,6 @@ public class Boss : EnemyDamaged
             if (!isInvincible)
             {
                 health -= other.GetComponent<PlayerBulletBehavior>().damage;
-                if (displayBarLife)
-                    bossLifeBar.SetFillAmount((float)base.health / (float)base.maxHealth);
                 if (health <= 0)
                 {
                     RemoveStock();
@@ -93,15 +72,19 @@ public class Boss : EnemyDamaged
             DestroyAllBullets();
         }
         SetMaxHealth(phaseDescriptors[idx].maxHealth);
-        StartCoroutine(BossPhaseChanging(idx, nbStocks));
+        BossPhaseChanging(idx, nbStocks);
     }
 
     // Enable lifebar + enable firing
     public void Activate()
     {
-        if (displayBarLife)
-            bossLifeBar.gameObject.SetActive(true);
+        UIManager.instance.OnBossReady(this);
         IsActivated = true;
+    }
+
+    public float GetBossLifeRatio()
+    {
+        return (float)base.health / (float)base.maxHealth;
     }
 
     private void DestroyAllBullets()
@@ -112,14 +95,12 @@ public class Boss : EnemyDamaged
         }
     }
 
-    IEnumerator BossPhaseChanging(int idx, int nbStocks)
+    private void BossPhaseChanging(int idx, int nbStocks)
     {
         // Use "PlayClipAtPoint" to avoid create an AudioSource and to avoid managing the Destroyed state
         gameObject.GetComponent<Animator>().SetTrigger("Touch");
         AudioSource.PlayClipAtPoint(phaseClip, gameObject.transform.position, 0.5f);
-        yield return new WaitForSecondsRealtime(0.5f);
         SetMaxHealth(phaseDescriptors[idx].maxHealth);
-        bossLifeBar.SetFillAmount(1);
-        bossLifeBar.SetLifeBarIndex(nbStocks);
+        UIManager.instance.UpdateBossPhase(nbStocks);
     }
 }
