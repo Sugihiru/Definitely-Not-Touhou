@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DifficultyChoiceMenu : AMenu
+public class DifficultyChoiceMenu : AMenu<TitleScreenMenuScreenType>
 {
     public string firstScene;
 

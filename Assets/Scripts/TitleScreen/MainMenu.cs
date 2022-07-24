@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : AMenu
+public class MainMenu : AMenu<TitleScreenMenuScreenType>
 {
     public string firstScene;
 
@@ -14,7 +14,7 @@ public class MainMenu : AMenu
     void EnterSurvivalModeDifficultyChoice()
     {
         GameConfiguration.SetGameMode(GameMode.Survival);
-        titleScreen.ChangeCurrentMenu(MenuScreenType.DifficultyChoiceMenu);
+        menuGroup.ChangeCurrentMenu(TitleScreenMenuScreenType.DifficultyChoiceMenu);
     }
 
     void ExtraStartGame()

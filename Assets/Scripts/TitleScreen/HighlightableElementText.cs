@@ -7,6 +7,7 @@ public class HighlightableElementText : MonoBehaviour, IHighlightableElement
 {
     TextMeshProUGUI text;
     public Color32 initialColor;
+    public Color32 highlightColor = new Color32(255, 255, 255, 255);
 
     void Awake()
     {
@@ -17,7 +18,7 @@ public class HighlightableElementText : MonoBehaviour, IHighlightableElement
     {
         text.outlineWidth = 0.25f;
         text.outlineColor = initialColor;
-        text.color = new Color32(255, 255, 255, 255);
+        text.color = highlightColor;
     }
 
     public void UnHightlight()

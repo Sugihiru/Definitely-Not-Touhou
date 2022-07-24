@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance = null;
     public BossLifeBar bossLifeBar;
     public BattleTimer battleTimer;
+    public GameOverMenuGroup gameOverMenuGroup;
 
     private GameMode gameMode;
 
@@ -44,6 +45,11 @@ public class UIManager : MonoBehaviour
     {
         bossLifeBar.SetFillAmount(1);
         bossLifeBar.SetLifeBarIndex(phaseIndex);
+    }
+
+    public void ShowGameOverScreen()
+    {
+        gameOverMenuGroup.gameObject.SetActive(true);
     }
 }
 

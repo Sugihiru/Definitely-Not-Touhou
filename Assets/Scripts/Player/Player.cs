@@ -76,20 +76,23 @@ public class Player : MonoBehaviour
         rb2D.MovePosition(rb2D.position + velocity);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (!isInvincible && (other.tag == "enemyBullet" || other.tag == "enemy")) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!isInvincible && (other.tag == "enemyBullet" || other.tag == "enemy"))
+        {
             lifeBar.fillAmount -= 1f / maxHealth;
             audioSourceHit.Play();
             health--;
-            if (health <= 0) {
-                // Destruction Sequence
-                GameManager.instance.TriggerContinue();
+            if (health <= 0)
+            {
+                GameManager.instance.GameOver();
             }
             else
             {
                 MakeInvincible();
             }
-            if (other.tag == "enemyBullet") {
+            if (other.tag == "enemyBullet")
+            {
                 other.gameObject.SetActive(false);
             }
         }

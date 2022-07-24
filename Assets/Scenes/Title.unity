@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec96bc1a6ea09584996117bb107b66f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleScreen: {fileID: 19757144}
+  menuGroup: {fileID: 19757144}
   menuElements:
   - callback: EnterSurvivalModeDifficultyChoice
     parent: {fileID: 239515238}
@@ -1980,7 +1980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6068344fc34f1c4bb4c03bde7e05998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleScreen: {fileID: 19757144}
+  menuGroup: {fileID: 0}
   menuElements:
   - callback: StartGameNormal
     parent: {fileID: 1248960503}

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,13 +20,12 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            Time.timeScale = 1;
         }
         else if (instance != this)
         {
             Destroy(this.gameObject);
         }
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
@@ -34,8 +33,10 @@ public class GameManager : MonoBehaviour
         InitLevel();
     }
 
-    private void Update() {
-        if (loadLevel == true) {
+    private void Update()
+    {
+        if (loadLevel == true)
+        {
             {
                 var loads = GameObject.FindGameObjectsWithTag("load");
                 if (loads.Length != 0)
@@ -89,8 +90,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameState = "gameOver";
-        SceneManager.LoadScene("GameOver");
-        Destroy(this.gameObject);
+        Time.timeScale = 0;
+        UIManager.instance.ShowGameOverScreen();
     }
 }
 

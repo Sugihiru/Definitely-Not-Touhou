@@ -15,10 +15,10 @@ public struct MenuElement
     }
 }
 
-public abstract class AMenu : MonoBehaviour
+public abstract class AMenu<T> : MonoBehaviour
 {
     [SerializeField]
-    protected TitleScreen titleScreen;
+    protected MenuGroup<T> menuGroup;
     [SerializeField]
     protected List<MenuElement> menuElements;
     [SerializeField]
@@ -56,7 +56,7 @@ public abstract class AMenu : MonoBehaviour
             if (onBackKeyPressed != null)
                 onBackKeyPressed();
             else
-                titleScreen.GoToPreviousMenu();
+                menuGroup.GoToPreviousMenu();
         }
     }
 
