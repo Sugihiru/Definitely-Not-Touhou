@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public int playerScore;
+    public int playerScore { get; private set; }
     public string gameState;
     private GameObject continueEvent;
     private GameObject levelLoader;
@@ -93,6 +94,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         UIManager.instance.ShowGameOverScreen();
         BgmManager.instance.ChangeToGameOverBgm();
+    }
+
+    public void AddScore(int scoreToAdd)
+    {
+        Assert.IsTrue(scoreToAdd > 0);
+        playerScore += scoreToAdd;
     }
 }
 

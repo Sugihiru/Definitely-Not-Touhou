@@ -16,6 +16,8 @@ public class Scoring : MonoBehaviour
     void Update()
     {
         if (GameManager.instance != null)
-        scoreText.text = GameManager.instance.playerScore.ToString("00000000");
+        {
+            scoreText.text = GameManager.instance.playerScore.ToString("00000000");
+        }
     }
 }

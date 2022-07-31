@@ -16,7 +16,7 @@ public class ScoreCollectible : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            GameManager.instance.playerScore += scoreValue;
+            GameManager.instance.AddScore(scoreValue);
             Destroy(gameObject);
         }
     }

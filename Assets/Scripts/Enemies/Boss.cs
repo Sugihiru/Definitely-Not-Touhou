@@ -40,9 +40,11 @@ public class Boss : EnemyDamaged
 
         if (other.tag == "playerBullet")
         {
+            int dmg = other.GetComponent<PlayerBulletBehavior>().damage;
+            GameManager.instance.AddScore(dmg);
             if (!isInvincible)
             {
-                health -= other.GetComponent<PlayerBulletBehavior>().damage;
+                health -= dmg;
                 if (health <= 0)
                 {
                     RemoveStock();
