@@ -4,34 +4,26 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    // GameObjects
-    public GameObject bulletPrefab;
     public GameObject hitBox;
-    public AudioSource audioSourceFire;
-    public AudioSource audioSourceHit;
     private Rigidbody2D rb2D;
     public Image lifeBar;
     public SpriteRenderer playerSprite;
+    public AudioSource audioSourceHit;
 
-    // Parameters
     public float speed;
-    public float fireDelay;
     public float focusModifier;
     public float maxHealth = 3f;
 
-    //Locals
-    float activeModifier = 1;
-    float cooldown = 0;
-
-    //Private
+    private float activeModifier = 1;
     private float health;
     private bool isInvincible = false;
-    private bool canFire = true;
+    private PlayerFire playerFire;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        playerFire = GetComponent<PlayerFire>();
         health = maxHealth;
         lifeBar.fillAmount = 1;
     }
@@ -39,18 +31,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cooldown >= 0)
-        {
-            cooldown -= Time.deltaTime;
-        }
-
-        if (Input.GetAxis("Fire1") == 1 && cooldown < 0 && canFire)
-        {
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
-            audioSourceFire.Play();
-            cooldown = fireDelay;
-        }
-
         if (Input.GetAxis("Focus") == 1)
         {
             hitBox.SetActive(true);
@@ -132,12 +112,12 @@ public class Player : MonoBehaviour
         if (active)
         {
             isInvincible = false;
-            canFire = true;
+            playerFire.canFire = true;
         }
         else
         {
             isInvincible = true;
-            canFire = false;
+            playerFire.canFire = false;
         }
     }
 }

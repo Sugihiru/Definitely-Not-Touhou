@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerBulletBehavior : MonoBehaviour
 {
-    public float speed = 5f;
-    public float ttl = 1f;
+    public float speed;
     public int damage = 20;
+
+    private float ttl = 2f;
 
     // Update is called once per frame
     void Update()
