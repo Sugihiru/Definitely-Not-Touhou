@@ -3434,7 +3434,7 @@ CanvasGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598817204}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
@@ -3738,6 +3738,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1950547107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8996737449197047114, guid: 00e25317a26bb3b419ac3769f52db3c6, type: 3}
+  m_PrefabInstance: {fileID: 1448279725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1950547108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950547107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774a0b62137a007498668bf7a8401683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultBgm: {fileID: 8300000, guid: e9c1fb9739c1a664980e9b2a7c31cb19, type: 3}
+  gameOverBgm: {fileID: 8300000, guid: eac4a75899c54f84db99dc301a0cffca, type: 3}
 --- !u!82 &1977607917 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8996737449197047115, guid: 00e25317a26bb3b419ac3769f52db3c6, type: 3}

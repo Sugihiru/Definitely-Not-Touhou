@@ -24,12 +24,14 @@ public abstract class AJunkoBossFirePattern : MonoBehaviour
     protected virtual void Awake()
     {
         bossData = GetComponent<Boss>();
-        firstPatternBulletSpawnZone = transform.Find("Pattern1ZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
-        secondPatternLeftBulletSpawnZone = transform.Find("Pattern2LeftZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
-        secondPatternRightBulletSpawnZone = transform.Find("Pattern2RightZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
-        thirdPatternLeftBulletSpawnZone = transform.Find("Pattern3LeftZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
-        thirdPatternRightBulletSpawnZone = transform.Find("Pattern3RightZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
-        fourthPatternBulletSpawnCenterPoint = transform.Find("Pattern4BulletSpawnCenterPoint").transform;
+        Transform patternSpawnZones = transform.Find("PatternSpawnZones");
+
+        firstPatternBulletSpawnZone = patternSpawnZones.Find("Pattern1ZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
+        secondPatternLeftBulletSpawnZone = patternSpawnZones.Find("Pattern2LeftZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
+        secondPatternRightBulletSpawnZone = patternSpawnZones.Find("Pattern2RightZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
+        thirdPatternLeftBulletSpawnZone = patternSpawnZones.Find("Pattern3LeftZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
+        thirdPatternRightBulletSpawnZone = patternSpawnZones.Find("Pattern3RightZoneBulletSpawnPoint").GetComponent<BoxCollider2D>();
+        fourthPatternBulletSpawnCenterPoint = patternSpawnZones.Find("Pattern4BulletSpawnCenterPoint").transform;
     }
 
     protected void FireCircleSpread(Vector3 bulletSpawnPosition, Func<GameObject> gameObjectPooler, int numberOfBullets = 16, float bulletSpeed = 2f)
