@@ -632,6 +632,10 @@ PrefabInstance:
       propertyPath: fireDelay
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: -5555948094737285532, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
+      propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1415548663073680850, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -2120,7 +2124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 560833419702549537, guid: 2578244b47ebc5140ab3dc717e27989d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 560833419702549551, guid: 2578244b47ebc5140ab3dc717e27989d, type: 3}
       propertyPath: m_FillAmount

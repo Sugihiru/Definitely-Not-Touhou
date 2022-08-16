@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     public GameObject hitBox;
     private Rigidbody2D rb2D;
-    public Image lifeBar;
     public SpriteRenderer playerSprite;
     public AudioSource audioSourceHit;
 
@@ -25,7 +24,6 @@ public class Player : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         playerFire = GetComponent<PlayerFire>();
         health = maxHealth;
-        lifeBar.fillAmount = 1;
     }
 
     // Update is called once per frame
@@ -46,7 +44,6 @@ public class Player : MonoBehaviour
     public void Respawn()
     {
         health = maxHealth;
-        lifeBar.fillAmount = 1;
         MakeInvincible();
     }
 
@@ -60,7 +57,6 @@ public class Player : MonoBehaviour
     {
         if (!isInvincible && (other.tag == "enemyBullet" || other.tag == "enemy"))
         {
-            lifeBar.fillAmount -= 1f / maxHealth;
             audioSourceHit.Play();
             health--;
             if (health <= 0)
