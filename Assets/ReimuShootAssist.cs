@@ -8,6 +8,6 @@ public class ReimuShootAssist : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(new Vector3(0, 0, -rotationSpeed), Space.World);
+        transform.Rotate(new Vector3(0, 0, -rotationSpeed * Time.deltaTime), Space.World);
     }
 }

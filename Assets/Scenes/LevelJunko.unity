@@ -636,13 +636,21 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2797695042469457879, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
+      propertyPath: rotationSpeed
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059969311090369154, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
+      propertyPath: rotationSpeed
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 5785827450282994806, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
+      propertyPath: rotationSpeed
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 5820330954632134656, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5820330954632134658, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
       propertyPath: m_RootOrder
@@ -687,6 +695,10 @@ PrefabInstance:
     - target: {fileID: 5820330954632134658, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034831300556256138, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
+      propertyPath: rotationSpeed
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ea43e21412b14c47bc5d9c05883c01c, type: 3}
