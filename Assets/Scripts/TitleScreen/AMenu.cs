@@ -29,7 +29,8 @@ public abstract class AMenu<T> : MonoBehaviour
 
     void Start()
     {
-        menuElements[0].parent.GetComponent<IHighlightableElement>().Highlight();
+        if (menuElements.Count > 0)
+            menuElements[0].parent.GetComponent<IHighlightableElement>().Highlight();
     }
 
     // Update is called once per frame
