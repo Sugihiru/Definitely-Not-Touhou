@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleTimer : MonoBehaviour
 {
-    private float timerValue;
+    public static float timerValue;
     private TextMeshProUGUI text;
 
     // Start is called before the first frame update
