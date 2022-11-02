@@ -34,14 +34,15 @@ app = FastAPI(title="DefinitelyNotTouhouApi", openapi_tags=tags_metadata)
 
 class SubmitScorePayload(BaseModel):
     score: int
-    seconds_survived: int
+    seconds_survived: float
 
 
 class ScoreModel(BaseModel):
     author: str
     score: int
     # createdTime: float
-    secondsSurvived: int
+    secondsSurvived: float
+    tmpScoreId: str | None
 
 
 @app.post(
@@ -66,6 +67,7 @@ def submit_tmp_score(submitted_score: SubmitScorePayload):
             author="",
             score=submitted_score.score,
             secondsSurvived=submitted_score.seconds_survived,
+            tmpScoreId="tmp-id",  # TODO: get from DB upload
         )
     )
     top_scores = sorted(top_scores, key=lambda x: x.secondsSurvived, reverse=True)[:10]
