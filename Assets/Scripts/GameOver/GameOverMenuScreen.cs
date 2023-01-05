@@ -10,21 +10,9 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 
-public class ScoreModel
-{
-    public string author { get; set; }
-    public int score { get; set; }
-    public float secondsSurvived { get; set; }
-    public string tmpScoreId { get; set; }
-
-    public override string ToString()
-    {
-        return "From=" + author + ";Score=" + score + ";SecondsSurvived=" + secondsSurvived;
-    }
-}
-
 public class GameOverMenuScreen : AMenu<GameOverMenuScreenType>
 {
+    public List<ScoreModel> scores;
     public TextMeshProUGUI uploadingScoreText;
     public bool? isHighScore = null;
 
@@ -63,14 +51,12 @@ public class GameOverMenuScreen : AMenu<GameOverMenuScreenType>
             {
                 Debug.Log(webRequest.error);
                 Debug.Log(webRequest.downloadHandler.text);
-                uploadingScoreText.text = "Error while uploading text (HTTP " + webRequest.responseCode + ")";
+                uploadingScoreText.text = "Error while uploading score (HTTP " + webRequest.responseCode + ")";
             }
             else
             {
                 // TODO: forward the scores array to the next menu
-                var scores = JsonConvert.DeserializeObject<List<ScoreModel>>(webRequest.downloadHandler.text);
-
-                Debug.Log(webRequest.downloadHandler.text);
+                this.scores = JsonConvert.DeserializeObject<List<ScoreModel>>(webRequest.downloadHandler.text);
 
                 isHighScore = scores.Any(score => score.tmpScoreId != null);
                 Debug.Log(isHighScore);
