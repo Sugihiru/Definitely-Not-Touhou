@@ -20,4 +20,9 @@ public class BattleTimer : MonoBehaviour
 
         text.SetText(timerValue.ToString("00.00", CultureInfo.InvariantCulture));
     }
+
+    void OnEnable()
+    {
+        timerValue = 0;
+    }
 }
