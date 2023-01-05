@@ -1,10 +1,9 @@
 from typing import List, Optional
 
 # import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Path
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-
 
 tags_metadata = [
     {
@@ -37,6 +36,10 @@ class SubmitScorePayload(BaseModel):
     seconds_survived: float
 
 
+class PublishScorePayload(BaseModel):
+    username: str
+
+
 class ScoreModel(BaseModel):
     author: str
     score: int
@@ -50,8 +53,8 @@ class ScoreModel(BaseModel):
     summary="Publish a score, associating an username with it",
     tags=["scoring"],
 )
-def publish_score(score_id: str, username: str):
-    return f"publish-score {score_id} {username}", 200
+def publish_score(*, score_id: str = Path(), payload: PublishScorePayload):
+    return f"publish-score {score_id} {payload.username}", 200
 
 
 @app.post(
@@ -91,5 +94,9 @@ def get_top_scores(username: Optional[str] = None, limit: Optional[int] = 10):
     # return f"get_top_scores {username}", 200
 
 
-# if __name__ == "__main__":
-#     uvicorn.run(app, port=int(os.environ.get("PORT", 8000)), host="0.0.0.0")
+if __name__ == "__main__":
+    import os
+
+    import uvicorn
+
+    uvicorn.run(app, port=int(os.environ.get("PORT", 8000)), host="0.0.0.0")

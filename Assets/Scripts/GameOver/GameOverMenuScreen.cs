@@ -18,7 +18,7 @@ public class GameOverMenuScreen : AMenu<GameOverMenuScreenType>
 
     void OnEnable()
     {
-        StartCoroutine(UploadScore("https://definitely-not-touhou-api-3jv2rb7i6a-ew.a.run.app/submit-tmp-score"));
+        StartCoroutine(UploadScore());
     }
 
     void Update()
@@ -36,10 +36,18 @@ public class GameOverMenuScreen : AMenu<GameOverMenuScreenType>
         }
     }
 
-    IEnumerator UploadScore(string uri)
+    public void GoToMainMenu()
+    {
+        menuGroup.ChangeCurrentMenu(GameOverMenuScreenType.MainMenu);
+    }
+
+    IEnumerator UploadScore()
     {
         Debug.Log("Uploading score");
-        var webRequest = UnityWebRequest.Put(uri, "{\"score\": " + GameManager.instance.playerScore + ", \"seconds_survived\": " + BattleTimer.timerValue.ToString("0.00").Replace(",", ".") + "}");
+        var webRequest = UnityWebRequest.Put(
+            "https://definitely-not-touhou-api-3jv2rb7i6a-ew.a.run.app/submit-tmp-score",
+            "{\"score\": " + GameManager.instance.playerScore + ", \"seconds_survived\": " + BattleTimer.timerValue.ToString("0.00").Replace(",", ".") + "}"
+        );
         webRequest.method = "POST";
         webRequest.SetRequestHeader("Content-Type", "application/json");
 
