@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JunkoBossFirePattern : AJunkoBossFirePattern
+public class JunkoBossChallengeFirePattern : AJunkoBossFirePattern
 {
     private float firstCooldownTime = 0;
     private float secondCooldownTime = 0;

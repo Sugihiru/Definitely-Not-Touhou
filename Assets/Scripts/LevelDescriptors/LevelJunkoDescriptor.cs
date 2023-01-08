@@ -24,8 +24,14 @@ public class LevelJunkoDescriptor : MonoBehaviour
 
         var enemyGameObject = Instantiate(bossSpawnData.enemyGameObject, bossSpawnData.spawnPosition + gameField.transform.position, Quaternion.identity);
 
-        var firePatternScript = System.Type.GetType($"JunkoBoss{gameMode}{difficulty}FirePattern");
-        enemyGameObject.AddComponent(firePatternScript);
+        if (gameMode == GameMode.Challenge)
+        {
+            enemyGameObject.AddComponent(System.Type.GetType($"JunkoBossChallengeFirePattern"));
+        }
+        else
+        {
+            enemyGameObject.AddComponent(System.Type.GetType($"JunkoBoss{gameMode}{difficulty}FirePattern"));
+        }
 
         if (gameMode == GameMode.Survival)
         {
