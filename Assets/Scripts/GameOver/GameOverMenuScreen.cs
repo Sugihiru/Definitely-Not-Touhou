@@ -46,7 +46,7 @@ public class GameOverMenuScreen : AMenu<GameOverMenuScreenType>
         Debug.Log("Uploading score");
         var webRequest = UnityWebRequest.Put(
             "https://definitely-not-touhou-api-3jv2rb7i6a-ew.a.run.app/submit-tmp-score",
-            "{\"score\": " + GameManager.instance.playerScore + ", \"seconds_survived\": " + BattleTimer.timerValue.ToString("0.00").Replace(",", ".") + "}"
+            "{\"score\": " + GameManager.instance.playerScore + ", \"seconds_survived\": " + BattleTimer.timerValue.ToString("0.00").Replace(",", ".") + ", \"difficulty\": \"" + GameConfiguration.GetCurrentDifficulty().ToString() + "\"}"
         );
         webRequest.method = "POST";
         webRequest.SetRequestHeader("Content-Type", "application/json");

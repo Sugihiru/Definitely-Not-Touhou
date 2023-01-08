@@ -6,7 +6,8 @@ import google.cloud.firestore_v1 as fsv1
 from fastapi import FastAPI, HTTPException, Path
 from fastapi.middleware.cors import CORSMiddleware
 from firebase_admin import credentials, firestore
-from pydantic import BaseModel
+
+from models import PublishScorePayload, ScoreModel, SubmitScorePayload
 
 ROOT_COLLECTION = os.environ.get("DEFINITELY_NOT_TOUHOU_FSDB_BASE_COLLECTION", "")
 SCORE_COLLECTION_PATH = f"{ROOT_COLLECTION}/scores" if ROOT_COLLECTION else "scores"
@@ -48,23 +49,6 @@ app = FastAPI(title="DefinitelyNotTouhouApi", openapi_tags=tags_metadata)
 #     logger.setLevel(logging.DEBUG)
 
 
-class SubmitScorePayload(BaseModel):
-    score: int
-    seconds_survived: float
-
-
-class PublishScorePayload(BaseModel):
-    username: str
-
-
-class ScoreModel(BaseModel):
-    author: str
-    score: int
-    # createdTime: float
-    secondsSurvived: float
-    tmpScoreId: str | None
-
-
 @app.post(
     "/publish-score/{score_id}",
     summary="Publish a score, associating an username with it",
@@ -104,7 +88,7 @@ def publish_score(*, score_id: str = Path(), payload: PublishScorePayload):
 )
 def submit_tmp_score(submitted_score: SubmitScorePayload):
     limit = 10
-    top_scores = get_top_scores(limit=limit)
+    top_scores = get_top_scores(difficulty=submitted_score.difficulty, limit=limit)
 
     tmp_doc_id = db.collection(PENDING_SCORE_COLLECTION_PATH).document().id
     score = ScoreModel(
@@ -112,6 +96,7 @@ def submit_tmp_score(submitted_score: SubmitScorePayload):
         score=submitted_score.score,
         secondsSurvived=submitted_score.seconds_survived,
         tmpScoreId=tmp_doc_id,
+        difficulty=submitted_score.difficulty,
     )
     top_scores.append(score)
     top_scores = sorted(top_scores, key=lambda x: x.secondsSurvived, reverse=True)[
@@ -119,32 +104,24 @@ def submit_tmp_score(submitted_score: SubmitScorePayload):
     ]
     if score in top_scores:
         db.collection(PENDING_SCORE_COLLECTION_PATH).document(tmp_doc_id).set(
-            {x: y for x, y in score.dict().items() if x in ("score", "secondsSurvived")}
+            {
+                x: y
+                for x, y in score.dict().items()
+                if x in ("score", "secondsSurvived", "difficulty")
+            }
             | {"createdTime": firestore.firestore.SERVER_TIMESTAMP}
         )
     return top_scores
 
 
 @app.get("/get-top-scores", response_model=List[ScoreModel], tags=["scoring"])
-def get_top_scores(username: Optional[str] = None, limit: int = 10):
-    query = db.collection(SCORE_COLLECTION_PATH)
+def get_top_scores(difficulty: str, username: Optional[str] = None, limit: int = 10):
+    query = db.collection(SCORE_COLLECTION_PATH).where("difficulty", "==", difficulty)
     if username:
         query = query.where("author", "==", username)
     docs = query.order_by("secondsSurvived", direction="DESCENDING").limit(limit).get()
 
     return [ScoreModel(**data) for data in (doc.to_dict() for doc in docs) if data]
-    return [
-        ScoreModel(author="moi", score=10, secondsSurvived=3),
-        ScoreModel(author="toi", score=1031, secondsSurvived=13),
-        ScoreModel(author="lui", score=1110, secondsSurvived=33),
-        ScoreModel(author="bob", score=1110, secondsSurvived=11),
-        ScoreModel(author="bob", score=1110, secondsSurvived=40),
-        ScoreModel(author="bob", score=1110, secondsSurvived=51),
-        ScoreModel(author="bob", score=1110, secondsSurvived=13),
-        ScoreModel(author="bob", score=1110, secondsSurvived=36),
-        ScoreModel(author="bob", score=1110, secondsSurvived=11),
-        ScoreModel(author="bob", score=1110, secondsSurvived=3),
-    ]
 
 
 if __name__ == "__main__":

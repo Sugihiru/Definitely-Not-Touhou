@@ -46,7 +46,7 @@ public class ScoreRowDisplay : MonoBehaviour
         KeyCode.Backspace,
         KeyCode.Return,
     };
-    private ScoreModel score;
+    private ScoreModel score = null;
     private bool canEdit = true;
 
     public void DisplayScore(ScoreModel score)
@@ -68,7 +68,7 @@ public class ScoreRowDisplay : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown && this.score.tmpScoreId != null && canEdit)
+        if (Input.anyKeyDown && this.score != null && this.score.tmpScoreId != null && canEdit)
         {
             KeyCode keyPressed = getCurrentKeyDown();
             if (keyPressed == KeyCode.Backspace)

@@ -13,7 +13,7 @@ public class GameOverScoreMenuScreen : MonoBehaviour
 
     void OnEnable()
     {
-        for (int i = 0; i < scoreRowDisplays.Count; ++i)
+        for (int i = 0; i < Math.Min(scoreRowDisplays.Count, gameOverMenuScreen.scores.Count); ++i)
         {
             scoreRowDisplays[i].DisplayScore(gameOverMenuScreen.scores[i]);
         }

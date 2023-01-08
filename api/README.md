@@ -12,7 +12,9 @@ Deploying
 
 5. Enable the following APIs : `cloudbuild.googleapis.com`, `artifactregistry.googleapis.com`, `run.googleapis.com` (or just follow this link to enable them : https://console.cloud.google.com/flows/enableapi?apiid=cloudbuild.googleapis.com,%20artifactregistry.googleapis.com,%20run.googleapis.com)
 
-6. In Firestore, create a composite index for the collectionId `scores` with the following indexed fields : `author` ASC, `secondsSurvived` ASC, `__name__` ASC
+6. In Firestore, create a composite index for the collectionId `scores` with the following indexed fields : `author` ASC, `secondsSurvived` ASC, `difficulty` ASC, `__name__` ASC
+
+7. In Firestore, create a composite index for the collectionId `scores` with the following indexed fields : `secondsSurvived` ASC, `difficulty` ASC, `__name__` ASC
 
 
 
