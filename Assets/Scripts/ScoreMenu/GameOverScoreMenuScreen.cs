@@ -24,12 +24,7 @@ public class GameOverScoreMenuScreen : MonoBehaviour
     {
         Debug.Log("Publishing score");
         instructionsText.text = "Uploading score...";
-        var webRequest = UnityWebRequest.Put(
-            "https://definitely-not-touhou-api-3jv2rb7i6a-ew.a.run.app/publish-score/" + scoreId,
-            "{\"username\": \"" + username + "\"}"
-        );
-        webRequest.method = "POST";
-        webRequest.SetRequestHeader("Content-Type", "application/json");
+        var webRequest = ScoringApi.GenerateRequestSurvivalPublishScore(scoreId, username);
 
         using (webRequest)
         {

@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using Newtonsoft.Json;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 
 
 public class GameOverMenuScreen : AMenu<GameOverMenuScreenType>
@@ -44,12 +41,7 @@ public class GameOverMenuScreen : AMenu<GameOverMenuScreenType>
     IEnumerator UploadScore()
     {
         Debug.Log("Uploading score");
-        var webRequest = UnityWebRequest.Put(
-            "https://definitely-not-touhou-api-3jv2rb7i6a-ew.a.run.app/submit-tmp-score",
-            "{\"score\": " + GameManager.instance.playerScore + ", \"seconds_survived\": " + BattleTimer.timerValue.ToString("0.00").Replace(",", ".") + ", \"difficulty\": \"" + GameConfiguration.GetCurrentDifficulty().ToString() + "\"}"
-        );
-        webRequest.method = "POST";
-        webRequest.SetRequestHeader("Content-Type", "application/json");
+        var webRequest = ScoringApi.GenerateRequestSurvivalSubmitTmpScore(GameManager.instance.playerScore, BattleTimer.timerValue, GameConfiguration.GetCurrentDifficulty());
 
         using (webRequest)
         {
