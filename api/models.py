@@ -9,20 +9,37 @@ class Difficulty(str, Enum):
     LUNATIC = "Lunatic"
 
 
-class SubmitScorePayload(BaseModel):
-    score: int
-    seconds_survived: float
-    difficulty: Difficulty
+class GameMode(str, Enum):
+    SURVIVAL = "Survival"
+    CHALLENGE = "Challenge"
 
 
 class PublishScorePayload(BaseModel):
     username: str
 
 
-class ScoreModel(BaseModel):
+class SurvivalScoreModel(BaseModel):
     author: str
     score: int
     # createdTime: float
     secondsSurvived: float
     tmpScoreId: str | None
     difficulty: Difficulty
+
+
+class SurvivalSubmitScorePayload(BaseModel):
+    score: int
+    seconds_survived: float
+    difficulty: Difficulty
+
+
+class ChallengeScoreModel(BaseModel):
+    author: str
+    # createdTime: float
+    secondsElapsed: float
+    tmpScoreId: str | None
+
+
+class ChallengeSubmitScorePayload(BaseModel):
+    score: int
+    seconds_elapsed: float

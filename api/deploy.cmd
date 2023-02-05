@@ -14,4 +14,4 @@ CALL gcloud run deploy definitely-not-touhou-api^
  --region europe-west1 --allow-unauthenticated --platform managed^
  --service-account %service_account%^
  --set-env-vars^
- DEFINITELY_NOT_TOUHOU_FSDB_BASE_COLLECTION=projects/definitelyNotTouhou,GCP_PROJECT=%gcp_project_id%
+ DEFINITELY_NOT_TOUHOU_FSDB_BASE_COLLECTION=projects/definitelyNotTouhou,API_LOG_ENV=production,GCP_PROJECT=%gcp_project_id%
