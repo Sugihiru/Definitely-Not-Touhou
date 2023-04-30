@@ -15,7 +15,14 @@ public class GameOverMenuScreen : AMenu<GameOverMenuScreenType>
 
     void OnEnable()
     {
-        StartCoroutine(UploadScore());
+        if (GameConfiguration.GetCurrentGameMode() == GameMode.Survival)
+        {
+            StartCoroutine(UploadScore());
+        }
+        else
+        {
+            menuGroup.ChangeCurrentMenu(GameOverMenuScreenType.MainMenu);
+        }
     }
 
     void Update()

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,7 +21,6 @@ public class LevelLoader : MonoBehaviour
     public void ChangeLevel(int index)
     {
         StartCoroutine(NextLevel(index));
-
     }
 
     IEnumerator StartLevel()
@@ -40,10 +38,6 @@ public class LevelLoader : MonoBehaviour
         canvasCamera.SetTrigger("Level_End");
         crossfadeTransition.SetTrigger("Level_End");
         yield return new WaitForSecondsRealtime(2);
-        SceneManager.LoadScene(index);
-        GameManager.instance.InitLevel();
+        SceneManager.LoadScene("GameOver");
     }
-
-
-
 }
