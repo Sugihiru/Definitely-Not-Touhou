@@ -48,7 +48,7 @@ public class EnemyDamaged : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathClip, gameObject.transform.position, 0.5f);
         gameObject.GetComponent<Animator>().SetTrigger("Die");
         GameManager.instance.AddScore(scoreValue);
-        yield return new WaitForSecondsRealtime(0.5f);
         Destroy(this.gameObject);
+        yield return null;
     }
 }

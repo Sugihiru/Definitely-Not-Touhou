@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [Serializable]
 public struct BossPhaseDescriptor
@@ -27,7 +25,6 @@ public class Boss : EnemyDamaged
 
     private int maxNbStocks;
 
-    // Start is called before the first frame update
     void Start()
     {
         maxNbStocks = nbStocks;
@@ -57,14 +54,11 @@ public class Boss : EnemyDamaged
     private void RemoveStock()
     {
         nbStocks -= 1;
-        if (nbStocks == 0)
+        if (nbStocks <= 0)
         {
             base.DestroyOnKill();
+            DestroyAllBullets();
             GameManager.instance.ChangeLevel();
-            return;
-        }
-        else if (nbStocks < 0)
-        {
             return;
         }
 
