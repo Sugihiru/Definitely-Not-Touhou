@@ -48,6 +48,7 @@ public class ScoreRowDisplay : MonoBehaviour
     };
     private ScoreModel score = null;
     private bool canEdit = true;
+    private KeyCode previousKey;
 
     public void DisplayScore(ScoreModel score)
     {
@@ -94,6 +95,7 @@ public class ScoreRowDisplay : MonoBehaviour
                 {
                     scoreUserTextField.text += getCurrentKeyDown().ToString().ToLower();
                 }
+                previousKey = keyPressed;
             }
         }
     }
@@ -106,7 +108,10 @@ public class ScoreRowDisplay : MonoBehaviour
         {
             if (Input.GetKey(kcode))
             {
-                finalKeyCode = kcode;
+                if ((finalKeyCode != KeyCode.None && kcode != previousKey) || finalKeyCode == KeyCode.None)
+                {
+                    finalKeyCode = kcode;
+                }
             }
         }
         return finalKeyCode;
