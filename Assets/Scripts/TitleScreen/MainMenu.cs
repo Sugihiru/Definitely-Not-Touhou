@@ -20,7 +20,8 @@ public class MainMenu : AMenu<TitleScreenMenuScreenType>
     void ExtraStartGame()
     {
         GameConfiguration.SetGameMode(GameMode.Challenge);
-        SceneManager.LoadScene(firstScene);
+        LoadingData.sceneToLoad = firstScene;
+        SceneManager.LoadScene("LoadingScene");
     }
 
     void QuitGame()
